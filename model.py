@@ -10,8 +10,8 @@ class Episode(db.Model):
     __tablename__ = 'episodes'
 
     ep_id = db.Column(db.String(10), primary_key=True)
-    season = db.Column(db.Intger, nullable=False)
-    episode = db.Column(db.Intger, nullable=False)
+    season = db.Column(db.Float, nullable=False)
+    episode = db.Column(db.Float, nullable=False)
     doctor = db.Column(db.String(30), nullable=False)
     title = db.Column(db.String(50), nullable=False)
     imdb = db.Column(db.Text, nullable=False)
