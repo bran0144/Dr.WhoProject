@@ -27,12 +27,13 @@ def get_episode_by_id(ep_id):
 
     return Episode.query.get(ep_id)
 
-def create_location(address, longitude, latitude, ep_id):
+def create_location(location_id, address, longitude, latitude, ep_id):
     """Create and return a new episode"""
 
-    location = Location(address=address,
+    location = Location(location_id=location_id,
+                        address=address,
                         longitude=longitude,
-                        latitude=latitude 
+                        latitude=latitude, 
                         ep_id=ep_id)
 
     db.session.add(location)
