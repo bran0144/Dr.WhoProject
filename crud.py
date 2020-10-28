@@ -2,11 +2,11 @@
 
 from model import db, Episode, Location, connect_to_db
 
-def create_episode(season, episode, doctor, title, imdb, ep_id):
+def create_episode(season, episode_number, doctor, title, imdb, ep_id):
     """Create and return a new episode"""
 
     episode = Episode(season=season, 
-                        episode=episode, 
+                        episode_number=episode_number, 
                         doctor=doctor, 
                         title=title, 
                         imdb=imdb, 
@@ -27,11 +27,10 @@ def get_episode_by_id(ep_id):
 
     return Episode.query.get(ep_id)
 
-def create_location(name, address, longitude, latitude, ep_id):
+def create_location(address, longitude, latitude, ep_id):
     """Create and return a new episode"""
 
-    location = Location(name=name,
-                        address=address,
+    location = Location(address=address,
                         longitude=longitude,
                         latitude=latitude 
                         ep_id=ep_id)

@@ -11,7 +11,7 @@ class Episode(db.Model):
 
     ep_id = db.Column(db.String(10), primary_key=True)
     season = db.Column(db.Float, nullable=False)
-    episode = db.Column(db.Float, nullable=False)
+    episode_number = db.Column(db.Float, nullable=False)
     doctor = db.Column(db.String(30), nullable=False)
     title = db.Column(db.String(50), nullable=False)
     imdb = db.Column(db.Text, nullable=False)
@@ -26,7 +26,6 @@ class Location(db.Model):
     __tablename__ = 'locations'
 
     location_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
     address = db.Column(db.String, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     latitude = db.Column(db.Float, nullable=False)

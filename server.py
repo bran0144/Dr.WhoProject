@@ -21,7 +21,7 @@ def homepage():
 # def create_map_from_search():
 #     """Renders template from search criteria"""
 
-# # stuff here probably a request.form.get using a GET method
+# probably a request.form.get using a GET method
 
 #     return render_template('map_search.html')
 
@@ -33,6 +33,7 @@ def homepage():
     # """View map of single pin"""
 
     # renders google map and info box
+    # based on click of pin from searched map page
 
 #   return render_template('/single_map.html')
 
