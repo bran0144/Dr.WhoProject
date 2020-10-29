@@ -28,14 +28,15 @@ def homepage():
 
 
 
-# @app.route(need to know how to route this to single map)
-# def show_single_map(click from map?):
+# @app.route("/single_map/<location_id>")
+# def show_single_map(location_id):
     # """View map of single pin"""
 
     # renders google map and info box
     # based on click of pin from searched map page
+    #location = crud.get_location_by_id(location_id)
 
-#   return render_template('/single_map.html')
+#   return render_template('/single_map.html', location=location)
 
 
 

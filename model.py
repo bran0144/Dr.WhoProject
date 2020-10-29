@@ -17,7 +17,7 @@ class Episode(db.Model):
     imdb = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
-        return f'<episode_id={ep_id} title={title}>'
+        return f'<episode_id={self.ep_id} title={self.title}>'
 
 
 class Location(db.Model):
@@ -29,12 +29,12 @@ class Location(db.Model):
     address = db.Column(db.String, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
-    ep_id = db.Column(db.String, db.ForeignKey(episodes.ep_id))
+    ep_id = db.Column(db.String, db.ForeignKey('episodes.ep_id'))
 
     episodes = db.relationship( 'Episode', backref='locations')
 
     def __repr__(self):
-        return f'<Location location_id={location_id} name={name}>'
+        return f'<Location location_id={self.location_id} name={self.name}>'
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///ratings', echo=True):
