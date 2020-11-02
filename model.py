@@ -1,6 +1,6 @@
 """Models for Dr. WHO app"""
 
-from flask_sqlalchmey import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
@@ -10,8 +10,8 @@ class Episode(db.Model):
     __tablename__ = 'episodes'
 
     ep_id = db.Column(db.String(10), primary_key=True)
-    season = db.Column(db.Float, nullable=False)
-    episode_number = db.Column(db.Float, nullable=False)
+    season = db.Column(db.String(15), nullable=False)
+    episode_number = db.Column(db.Integer, nullable=False)
     doctor = db.Column(db.String(30), nullable=False)
     title = db.Column(db.String(50), nullable=False)
     imdb = db.Column(db.Text, nullable=False)
@@ -29,9 +29,9 @@ class Location(db.Model):
     address = db.Column(db.String, nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
-    ep_id = db.Column(db.String, db.ForeignKey('episodes.ep_id'))
+    ep_id = db.Column(db.String(10), db.ForeignKey('episodes.ep_id'))
 
-    episodes = db.relationship( 'Episode', backref='locations')
+    episodes = db.relationship('Episode', backref='locations')
 
     def __repr__(self):
         return f'<Location location_id={self.location_id} name={self.name}>'
