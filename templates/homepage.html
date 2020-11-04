@@ -4,7 +4,7 @@
 {% block body %}
   <h1>Welcome!</h1>
 
-  <h2>Navigation</h2>
+  <h2>NavBar</h2>
  
 
   <!-- Title -->
@@ -12,7 +12,11 @@
 
  <div>
    <h3>SEARCH BY SEASON</h3>
-  <select id="season">
+  <form id = "search-season-episode">
+   <select name="season" id="season">
+    <option value="SHOW ALL" selected disabled hidden>
+      ALL SEASONS
+    </option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -25,12 +29,12 @@
     <option value="10">10</option>
     <option value="11">11</option>
     <option value="12">12</option>
-    <option value="13">Specials</option>
+    <option value="Special">Specials</option>
   </select>
-</div>
-<div>
-  <h3>SEARCH BY EPISODE NUMBER</h3>
-  <select id="episode">
+  <h3>AND EPISODE NUMBER</h3>
+  <select name="episode" id="episode">
+    <option value="SHOW ALL" selected disabled hidden>
+    </option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
@@ -48,13 +52,25 @@
     <option value="15">15</option>
     <option value="16">16</option>
   </select>
+  <input type="submit" name="submit" value="Submit"/>
+</form>
 </div>
   <h3>SEARCH BY DOCTOR</h3>
-  <select id="doctor">
-    <option value="1">Eccleston</option>
-    <option value="2">Tennant</option>
-    <option value="3">Smith</option>
-    <option value="4">Capaldi</option>
-    <option value="5">Whittaker</option>
+  <form id="search-doctor">
+  <select name="doctor" id="doctor">
+    <option value="NONE" selected disabled hidden></option>
+    <option value="1">Christopher Eccleston</option>
+    <option value="2">David Tennant</option>
+    <option value="3">Matt Smith</option>
+    <option value="4">Peter Capaldi</option>
+    <option value="5">Jodie Whittaker</option>
   </select>
+  <input type="submit" name="submit" value="Submit"/>
+</form>
+  <h3>SEARCH BY EPISODE TITLE</h3>
+  <form>
+    <input type="text" id="episode-title">
+    <br>
+    <input type="submit" value="Submit">
+  </form>
 {% endblock %}

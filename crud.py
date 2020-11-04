@@ -27,6 +27,17 @@ def get_episode_by_id(ep_id):
 
     return Episode.query.get(ep_id)
 
+def get_episode_by_season(season):
+    """Returns episodes by season."""
+
+    return Episode.query.get(season)
+
+def get_episode_by_title(title):
+    """Returns episode by title."""
+
+    return Episode.query.get(title)
+
+
 def create_location(location_id, address, longitude, latitude, ep_id):
     """Create and return a new episode"""
 
@@ -51,6 +62,26 @@ def get_location_by_id(location_id):
 
     return Location.query.get(location_id)
 
+def get_location_by_ep_id(ep_id):
+    """Returns locations by ep_id."""
+
+    return Location.query.get(ep_id)
+
+def get_location_by_season_episode(season, episode_number):
+    """Returns locations by season and episode."""
+
+    return Location.query.options(db.joinedload('episodes')).filter_by(season=season, 
+    episode_number=episode_number, title=title).get(longitude=longitude, latitude=latitude)
+
+def get_location_by_doctor(doctor):
+    """Returns locations by doctor."""
+
+    return Location.query.options(db.joinedload('episodes')).get(doctor)
+
+def get_location_by_title(title):
+    """Returns locations by title."""
+
+    return Location.query.options
 
 if __name__ == '__main__':
     from server import app

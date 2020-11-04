@@ -13,15 +13,15 @@ model.connect_to_db(server.app)
 model.db.create_all()
 
 with open('DoctorWhoEpisodesInfo.csv') as csv_file:
-    episode_data = csv.reader(csv_file, delimter=',')
+    episode_data = csv.reader(csv_file, delimiter=',')
     #reads and imports Episode info from csv file
   
 
 with open('dr_who_locations.csv') as csv_file:
-    location_data = csv.reader(csv_file, delimter=',') 
+    location_data = csv.reader(csv_file, delimiter=',') 
     #reads and imports Location info from csv file
 
-episodes_in_db = [] 
+locations_in_db = [] 
 #initializes database
             
 for episode in episode_data:
@@ -40,12 +40,8 @@ for episode in episode_data:
                                       title, 
                                       imdb,
                                       ep_id)
-    episodes_in_db.append(db_episode)
+    locations_in_db.append(db_episode)
 
-
-locations_in_db = []   
-#initializes database
-          
 for location in location_data:
      #for loop to set up database for locations table and seeds data into locations_in_db
     location_id, address, longitude, latitude, ep_id = (location['location_id'],
