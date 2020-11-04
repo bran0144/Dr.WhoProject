@@ -2,8 +2,9 @@
 {% block title %}{% endblock %}
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9mGiweszaih1mpwWpUzbhDoX3O0S7ePc&callback=initMap&libraries=&v=weekly"
-  defer
+  async defer
+  src="https://maps.googleapis.com/maps/api/js?key=[APIKEY]&callback=initMap&libraries=&v=weekly"
+  type="text/javascript"
 ></script>
 <link rel="stylesheet" type="text/css" href="./style.css" />
 <script src="./index.js"></script>
@@ -11,7 +12,7 @@
   <!-- <h1>Have a heading with flexible info given search parameters</h1> -->
 
   <!-- Map here with single pins -->
-  <div id="searched-map"></div>
+  <div id="single-map"></div>
   <!-- Info box with address and episode info -->
   <!-- Footer that brings you back to search page -->
  

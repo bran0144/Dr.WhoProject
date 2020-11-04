@@ -4,7 +4,6 @@ from flask import (Flask, render_template, request, flash, session,
                    redirect)
 from model import connect_to_db
 import crud
-
 from jinja2 import StrictUndefined
 
 app = Flask(__name__)
@@ -24,9 +23,11 @@ def create_map_from_season_search():
     season = request.args.get('season')
     episode_number = request.args.get('episode_number')
     
-    latitude, longitude, season, episode_number, title = crud.get_location_by_season_episode(season, episode_number)
-
-
+    if season == "SHOW ALL":
+        latitude, longitude, season, episode_number, title = crud.get_locations()
+    else:
+        latitude, longitude, season, episode_number, title = crud.get_location_by_season_episode(season, episode_number)
+    
     return render_template('map_search.html',
                             latitude=latitude,
                             longtiude=longitude,
@@ -54,21 +55,28 @@ def create_map_from_doctor_search():
 def create_map_from_title_search():
     """Renders map template from search criteria.""" 
 
-    title = request.form.get('title')
+    title = request.args.get('title')
 
+    latitude, longitude, season, episode_number, title = crud.get_location_by_title(title)
+
+    return render_template('map_search.html',
+                            latitude=latitude,
+                            longitude=longitude,
+                            season=season,
+                            episode_number=episode_number,
+                            title=title)
 
 
 @app.route("/single_map/<location_id>")
 def show_single_map(location_id):
-    """View map of single pin"""
+    """View map of single pin."""
 
     # renders google map and info box
     # based on click of pin from searched map page
 
-    latitude, longitude, addresss, season, episode_number, title, imdb = crud.get_location_by_id(location_id)
-    # need to return lat/long, address, season, episode #, title, imdb
-
-  return render_template('/single_map.html', latitude=latitude,
+    latitude, longitude, address, season, episode_number, title, imdb = crud.get_location_by_id(location_id)
+    
+    return render_template('/single_map.html', latitude=latitude,
                                         longitude=longitude,
                                         address=address,
                                         season=season,
@@ -76,9 +84,17 @@ def show_single_map(location_id):
                                         title=title,
                                         imdb=imdb)
 
+@app.route("/episode_list")
+def create_list_of_episodes():
+    """View full list of episodes."""
 
+    season, episode_number, doctor, title, imdb = crud.get_episodes()
 
-
+    return render_template('episode_list.html', season=season,
+                                                episode_number=episode_number,
+                                                doctor=doctor,
+                                                title=title,
+                                                imdb=imdb)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

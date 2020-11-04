@@ -18,25 +18,9 @@ def create_episode(season, episode_number, doctor, title, imdb, ep_id):
     return episode
 
 def get_episodes():
-    """Returns all episodes"""
+    """Returns all locations."""
 
     return Episode.query.all()
-
-def get_episode_by_id(ep_id):
-    """Returns episode by id."""
-
-    return Episode.query.get(ep_id)
-
-def get_episode_by_season(season):
-    """Returns episodes by season."""
-
-    return Episode.query.get(season)
-
-def get_episode_by_title(title):
-    """Returns episode by title."""
-
-    return Episode.query.get(title)
-
 
 def create_location(location_id, address, longitude, latitude, ep_id):
     """Create and return a new episode"""

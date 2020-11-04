@@ -12,8 +12,8 @@ class Episode(db.Model):
     ep_id = db.Column(db.String(10), primary_key=True)
     season = db.Column(db.String(15), nullable=False)
     episode_number = db.Column(db.String(10), nullable=False)
-    doctor = db.Column(db.String(30), nullable=False)
-    title = db.Column(db.String(50), nullable=False)
+    doctor = db.Column(db.String(50), nullable=False)
+    title = db.Column(db.String(100), nullable=False)
     imdb = db.Column(db.Text, nullable=False)
 
     def __repr__(self):

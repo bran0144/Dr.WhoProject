@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block body %}
+<h2>Episode List</h2> 
+    
+<ul>
+    {% for episode in episodes %}
+      <li>
+        <a href="/episodes/{{ episode.ep_id }}">
+          {{ episode.season, episode.episode_number, episode.title, episode.imdb }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+ 
+
+
+{% endblock %}
