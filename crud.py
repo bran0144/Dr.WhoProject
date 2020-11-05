@@ -22,11 +22,10 @@ def get_episodes():
 
     return Episode.query.all()
 
-def create_location(location_id, address, longitude, latitude, ep_id):
+def create_location(address, longitude, latitude, ep_id):
     """Create and return a new episode"""
 
-    location = Location(location_id=location_id,
-                        address=address,
+    location = Location(address=address,
                         longitude=longitude,
                         latitude=latitude, 
                         ep_id=ep_id)

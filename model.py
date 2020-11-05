@@ -27,8 +27,8 @@ class Location(db.Model):
 
     location_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     address = db.Column(db.String, nullable=False)
-    longitude = db.Column(db.Float, nullable=False)
-    latitude = db.Column(db.Float, nullable=False)
+    longitude = db.Column(db.Numeric(precision=20, scale=15), nullable=False)
+    latitude = db.Column(db.Numeric(precision=20, scale=15), nullable=False)
     ep_id = db.Column(db.String(10), db.ForeignKey('episodes.ep_id'))
 
     episodes = db.relationship('Episode', backref='locations')

@@ -5,6 +5,7 @@ import csv
 import crud
 import model
 import server
+from decimal import Decimal
 
 os.system('dropdb locations')
 os.system('createdb locations')
@@ -41,18 +42,19 @@ with open('data/DoctorWhoEpisodesInfo.csv') as csv_file:
         locations_in_db.append(db_episode)
 
 
-with open('data/dr_who_locations.csv') as csv_file:
+with open('data/dr_who_locations.csv', encoding='utf-8-sig') as csv_file:
     fieldnames = ['address', 'longitude', 'latitude', 'ep_id']
-    location_data = csv.DictReader(csv_file, fieldnames=fieldnames, dialect='excel') 
+    location_data = csv.DictReader(csv_file, fieldnames=fieldnames, 
+                        skipinitialspace=True) 
     #reads and imports Location info from csv file
 
     for location in location_data:
      #for loop to set up database for locations table and seeds data into locations_in_db
         address, longitude, latitude, ep_id = (location['address'],
-                                        location['longitude'],
-                                        location['latitude'],
-                                        location['ep_id'])
-
+                                            location['longitude'],
+                                            location['latitude'],
+                                            location['ep_id'])
+        
         db_location = crud.create_location(address,
                                         longitude,
                                         latitude,

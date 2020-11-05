@@ -1,8 +1,8 @@
 """Server for doctor who locations app."""
 
 from flask import (Flask, render_template, request, flash, session,
-                   redirect)
-from model import connect_to_db
+                   redirect, jsonify)
+from model import connect_to_db, db, Episode, Location
 import crud
 from jinja2 import StrictUndefined
 
@@ -95,6 +95,27 @@ def create_list_of_episodes():
                                                 doctor=doctor,
                                                 title=title,
                                                 imdb=imdb)
+                                
+@app.route("/api/locations")
+def location_info():
+    """JSON information about filming locations."""
+
+    film_locations = [
+        {
+            "location_id": Location.location_id,
+            "address": Location.address,
+            "longitude": Location.longitude,
+            "latitude": Location.latitude,
+            "season": Episode.season,
+            "episode_number": Episode.episode_number,
+            "doctor": Episode.doctor,
+            "title": Episode.title,
+            "imdb": Episode.imdb
+        }
+        for location in Location.query.all()
+    ]
+
+    return jsonify(film_locations)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

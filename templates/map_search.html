@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/style.css">
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script src="/static/map_search.js"></script>
+<script
+async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9mGiweszaih1mpwWpUzbhDoX3O0S7ePc&callback=initMap">
+</script>
+{% endblock %}
 
 {% block body %}
   <!-- <h1>Have a heading with flexible info given search parameters</h1> -->
 
   <!-- Map here with clickable pins -->
-  <div id="searched_map"></div>
+  <main>
+    <section class="map">
+      <div id="searched_map"></div>
+    </section>
+  </main>
 
   <!-- {% for location in locations %} -->
   <!-- display clickable pins based on search criteria-->
