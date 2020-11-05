@@ -59,7 +59,7 @@ function initMap() {
           (See model.py and seed.py for more info).
         `));
       });
-
+    }
 // // load data using the map.data.loadGeoJson() method. data needs to be in a json format
 
 // // Loop through the results array and place a marker for each

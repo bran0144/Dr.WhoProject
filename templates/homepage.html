@@ -34,7 +34,7 @@ crossorigin="anonymous"></script>
     <option value="Special">Specials</option>
   </select>
   <h3>AND EPISODE NUMBER</h3>
-  <select name="episode" id="episode">
+  <select name="episode" id="episode-number">
     <option value="SHOW ALL" selected disabled hidden>
     </option>
     <option value="1">1</option>
@@ -59,7 +59,7 @@ crossorigin="anonymous"></script>
 </div>
   <h3>SEARCH BY DOCTOR</h3>
   <form id="search-doctor">
-  <select name="doctor" id="doctor">
+  <select name="doctor" id="search-doctor">
     <option value="NONE" selected disabled hidden></option>
     <option value="1">Christopher Eccleston</option>
     <option value="2">David Tennant</option>
@@ -77,6 +77,6 @@ crossorigin="anonymous"></script>
     <input type="submit" value="Submit">
   </form>
 
-  
+
   <script src="/static/homepage.js"></script>
 {% endblock %}

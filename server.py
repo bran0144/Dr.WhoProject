@@ -51,7 +51,7 @@ def create_map_from_doctor_search():
                             title=title,
                             doctor=doctor)
 
-@app.route('/map_search')
+@app.route('/map_search/<title>')
 def create_map_from_title_search():
     """Renders map template from search criteria.""" 
 
