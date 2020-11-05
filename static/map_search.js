@@ -16,45 +16,39 @@ function initMap() {
     });
   
 
-    $.get('/api/bears', (bears) => {
-        for (const bear of bears) {
+    $.get('/api/locations', (locations) => {
+        for (const location of locations) {
           // Define the content of the infoWindow
-          const bearInfoContent = (`
-            <div class="window-content">
-              <div class="bear-thumbnail">
-                <img
-                  src="/static/img/polarbear.jpg"
-                  alt="polarbear"
-                />
-              </div>
+          const locationInfoContent = (`
+            
     
-              <ul class="bear-info">
-                <li><b>Bear gender: </b>${bear.gender}</li>
-                <li><b>Bear birth year: </b>${bear.birthYear}</li>
-                <li><b>Year captured: </b>${bear.capYear}</li>
-                <li><b>Collared: </b>${bear.collared}</li>
-                <li><b>Location: </b>${bear.capLat}, ${bear.capLong}</li>
+              <ul class="location-info">
+                <li><b>Season</b>${Episode.season}</li>
+                <li><b>Episode Number</b>${Episode.episode_number}</li>
+                <li><b>Doctor</b>${Episode.doctor}</li>
+                <li><b>Title</b>${Episode.title}</li>
+                <li><b>Address</b>${Location.address}</li>
               </ul>
             </div>
           `);
     
-          const bearMarker = new google.maps.Marker({
+          const locationMarker = new google.maps.Marker({
             position: {
-              lat: bear.capLat,
-              lng: bear.capLong
+              lat: Location.latitude,
+              lng: Location.longitude
             },
-            title: `Bear ID: ${bear.bearId}`,
-            icon: {
-              url: '/static/img/polarBear.svg',
-              scaledSize: new google.maps.Size(50, 50)
-            },
+            // title: `Bear ID: ${bear.bearId}`,
+            // icon: {
+            //   url: '/static/img/polarBear.svg',
+            //   scaledSize: new google.maps.Size(50, 50)
+            // },
             map: map,
           });
     
-          bearMarker.addListener('click', () => {
-            bearInfo.close();
-            bearInfo.setContent(bearInfoContent);
-            bearInfo.open(map, bearMarker);
+          locationMarker.addListener('click', () => {
+            locationInfo.close();
+            locationInfo.setContent(locationInfoContent);
+            locationInfo.open(map, locationMarker);
           });
         }
       }).fail(() => {
