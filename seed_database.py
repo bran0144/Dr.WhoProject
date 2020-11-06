@@ -18,7 +18,7 @@ locations_in_db = []
 
 with open('data/DoctorWhoEpisodesInfo.csv', encoding='utf-8-sig') as csv_file:
     fieldnames = ['season', 'episode_number', 'doctor', 'title', 'imdb', 'ep_id']
-    episode_data = csv.DictReader(csv_file, fieldnames=fieldnames, dialect='excel')
+    episode_data = csv.DictReader(csv_file, fieldnames=fieldnames, skipinitialspace=True)
     #reads and imports Episode info from csv file    
 
     for episode in episode_data:
@@ -44,8 +44,7 @@ with open('data/DoctorWhoEpisodesInfo.csv', encoding='utf-8-sig') as csv_file:
 
 with open('data/dr_who_locations.csv', encoding='utf-8-sig') as csv_file:
     fieldnames = ['address', 'longitude', 'latitude', 'ep_id']
-    location_data = csv.DictReader(csv_file, fieldnames=fieldnames, 
-                        skipinitialspace=True) 
+    location_data = csv.DictReader(csv_file, fieldnames=fieldnames, skipinitialspace=True) 
     #reads and imports Location info from csv file
 
     for location in location_data:
