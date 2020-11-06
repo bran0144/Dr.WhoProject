@@ -106,6 +106,7 @@ def location_info():
             "address": Location.address,
             "longitude": Location.longitude,
             "latitude": Location.latitude,
+            "ep_id": Location.ep_id,
             "season": Episode.season,
             "episode_number": Episode.episode_number,
             "doctor": Episode.doctor,

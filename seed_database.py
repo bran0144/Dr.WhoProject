@@ -16,7 +16,7 @@ model.db.create_all()
 locations_in_db = [] 
 
 
-with open('data/DoctorWhoEpisodesInfo.csv') as csv_file:
+with open('data/DoctorWhoEpisodesInfo.csv', encoding='utf-8-sig') as csv_file:
     fieldnames = ['season', 'episode_number', 'doctor', 'title', 'imdb', 'ep_id']
     episode_data = csv.DictReader(csv_file, fieldnames=fieldnames, dialect='excel')
     #reads and imports Episode info from csv file    

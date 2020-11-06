@@ -20,7 +20,7 @@ def create_episode(season, episode_number, doctor, title, imdb, ep_id):
 def get_episodes():
     """Returns all locations."""
 
-    return Episode.query.all()
+    return db.session.query(Episode).all()
 
 def create_location(address, longitude, latitude, ep_id):
     """Create and return a new episode"""
@@ -38,33 +38,33 @@ def create_location(address, longitude, latitude, ep_id):
 def get_locations():
     """Returns all locations."""
 
-    return Location.query.all()
+    return db.session.query(Location).all()
 
 def get_location_by_id(location_id):
     """Returns location by id."""
 
-    return Location.query.get(location_id)
+    return db.session.query(Location.location_id).alll()
 
 def get_location_by_ep_id(ep_id):
     """Returns locations by ep_id."""
 
-    return Location.query.get(ep_id)
+    return db.session.query(Location.ep_id).all()
 
 def get_location_by_season_episode(season, episode_number):
     """Returns locations by season and episode."""
 
-    return Location.query.options(db.joinedload('episodes')).filter_by(season=season, 
-    episode_number=episode_number, title=title).get(longitude=longitude, latitude=latitude)
+    return db.session.query(Location).join(Episode).filter(Episode.season == season, 
+    Episode.episode_number == episode_number).all()
 
 def get_location_by_doctor(doctor):
     """Returns locations by doctor."""
 
-    return Location.query.options(db.joinedload('episodes')).get(doctor)
+    return db.session.query(Location).join(Episode).filter(Episode.doctor == doctor).all()
 
 def get_location_by_title(title):
     """Returns locations by title."""
 
-    return Location.query.options
+    return db.session.query(Location).join(Episode).filter(Episode.title.like('%title%')).all()
 
 if __name__ == '__main__':
     from server import app
