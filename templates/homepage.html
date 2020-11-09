@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block head %}
 <link rel="stylesheet" href="/static/style.css">
-<script
-src="http://code.jquery.com/jquery-3.5.1.js"
-integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-crossorigin="anonymous"></script>
+
 {% endblock %}
 
 {% block body %}
@@ -14,7 +11,7 @@ crossorigin="anonymous"></script>
 
  <div>
    <h3>SEARCH BY SEASON</h3>
-  <form id = "search-season-episode">
+  <form id = "search-season-episode" method="GET" action="/map_search">
    <select name="season" id="season">
     <option value="SHOW ALL" selected disabled hidden>
       ALL SEASONS
@@ -58,7 +55,7 @@ crossorigin="anonymous"></script>
 </form>
 </div>
   <h3>SEARCH BY DOCTOR</h3>
-  <form id="search-doctor">
+  <form id="search-doctor" method="GET" action="/map_search">
   <select name="doctor" id="search-doctor">
     <option value="NONE" selected disabled hidden></option>
     <option value="1">Christopher Eccleston</option>
@@ -70,7 +67,7 @@ crossorigin="anonymous"></script>
   <input type="submit" name="submit" value="Submit"/>
 </form>
   <h3>SEARCH BY EPISODE TITLE</h3>
-  <form action="/map_search"> 
+  <form id="episode-title" action="/map_search" method="GET"> 
     <label for="episode-title"></label>
     <input type="text" id="episode-title">
     <br>

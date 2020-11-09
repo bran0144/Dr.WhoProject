@@ -8,8 +8,10 @@
     {% for episode in episodes %}
       <li>
         <a href="/episodes/{{ episode.ep_id }}">
-          {{ episode.season, episode.episode_number, episode.title, episode.imdb }}
+          {{ episode.title, episode.imdb }}
         </a>
+        <!-- <a href= not sure what this is yet> -->
+            <!-- {{e}} -->
       </li>
     {% endfor %}
   </ul>

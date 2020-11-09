@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
   <head>
+   
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/f7ba782cea.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/style.css">
     <script
     src="http://code.jquery.com/jquery-3.5.1.js"
@@ -20,7 +20,7 @@
   <body>
     
     {% block body %}
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar sticky-top">
       <a id="dr-who-logo" class="navbar-brand" href="#">Doctor Who What Where</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -49,7 +49,6 @@
     
     {% endblock %}
   
-    {% block after_body %}{% endblock %}
    
   </body>
 </html>

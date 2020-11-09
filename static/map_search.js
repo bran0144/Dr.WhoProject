@@ -18,11 +18,20 @@ function initMap() {
       mapTypeId: google.maps.MapTypeId.TERRAIN
     });
   
+  const locationInfo = new google.maps.InfoWindow();
 
     $.get('/api/locations', (locations) => {
         for (const location of locations) {
           // Define the content of the infoWindow
-          const locationInfoContent = (
+          const locationInfoContent = (`
+          <div class="window-content">
+          // <div class="tardis-thumbnail">
+          //   <img
+          //     src="/static/img/tardis.jpg"
+          //     alt="tardis"
+          //   />
+          // </div>
+
               <ul class="location-info">
                 <li><b>Season</b>${Episode.season}</li>
                 <li><b>Episode Number</b>${Episode.episode_number}</li>
@@ -30,7 +39,7 @@ function initMap() {
                 <li><b>Title</b>${Episode.title}</li>
                 <li><b>Address</b>${Location.address}</li>
               </ul>
-          );
+          `);
     
           const locationMarker = new google.maps.Marker({
             position: {

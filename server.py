@@ -16,7 +16,7 @@ def homepage():
 
     return render_template('homepage.html')
 
-@app.route('/map_search/<season>/<episode_number>')
+@app.route('/map_search')
 def create_map_from_season_search():
     """Renders map template from search criteria."""
 
@@ -35,7 +35,7 @@ def create_map_from_season_search():
                             episode_number=episode_number,
                             title=title)
 
-@app.route('/map_search/<doctor>')
+@app.route('/map_search')
 def create_map_from_doctor_search():
     """Renders map template from search criteria."""
 
@@ -51,7 +51,7 @@ def create_map_from_doctor_search():
                             title=title,
                             doctor=doctor)
 
-@app.route('/map_search/<title>')
+@app.route('/map_search')
 def create_map_from_title_search():
     """Renders map template from search criteria.""" 
 
@@ -67,7 +67,7 @@ def create_map_from_title_search():
                             title=title)
 
 
-@app.route("/single_map/<location_id>")
+@app.route("/single_map")
 def show_single_map(location_id):
     """View map of single pin."""
 
