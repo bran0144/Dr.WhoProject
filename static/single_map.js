@@ -21,7 +21,7 @@ function initMap() {
     });
   
 
-    $.get('/api/locations', (locations) => {
+    $.get('/locations.json', (locations) => {
         for (const location of locations) {
           // Define the content of the infoWindow
           const locationInfoContent = (

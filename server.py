@@ -9,12 +9,20 @@ from jinja2 import StrictUndefined
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+app.config.from_object('secrets.sh')
 
 @app.route('/')
 def homepage():
     """View homepage."""
 
     return render_template('homepage.html')
+
+@app.route('/about')
+def get_about_page():
+    """View About page."""
+
+    return render_template('about.html')
+
 
 @app.route('/map_search')
 def create_map_from_season_search():
@@ -96,7 +104,7 @@ def create_list_of_episodes():
                                                 title=title,
                                                 imdb=imdb)
                                 
-@app.route("/api/locations")
+@app.route("/locations.json")
 def location_info():
     """JSON information about filming locations."""
 

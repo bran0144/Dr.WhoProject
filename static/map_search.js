@@ -9,18 +9,15 @@ function initMap() {
         lat: 51.509865,
         lng: -0.118092
       },
-      scrollwheel: false,
       zoom: 5,
-      zoomControl: true,
-      panControl: false,
-      streetViewControl: false,
-    //   styles: MAPSTYLES,  // mapStyles is defined in mapstyles.js
-      mapTypeId: google.maps.MapTypeId.TERRAIN
-    });
-  
-  const locationInfo = new google.maps.InfoWindow();
 
-    $.get('/api/locations', (locations) => {
+    //   styles: MAPSTYLES,  // mapStyles is defined in mapstyles.js
+      mapTypeId: "terrain",
+    });
+
+    const locationInfo = new google.maps.InfoWindow();
+
+    $.get('/locations.json', (locations) => {
         for (const location of locations) {
           // Define the content of the infoWindow
           const locationInfoContent = (`
