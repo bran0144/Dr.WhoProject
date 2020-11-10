@@ -30,6 +30,7 @@ function initMap() {
                 <li><b>Episode Number</b>${Episode.episode_number}</li>
                 <li><b>Doctor</b>${Episode.doctor}</li>
                 <li><b>Title</b>${Episode.title}</li>
+                <li><b>IMDB Link</b>${Episode.imdb}</li>
                 <li><b>Address</b>${Location.address}</li>
               </ul>
           );

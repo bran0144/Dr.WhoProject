@@ -4,14 +4,15 @@
 
 {% endblock %}
 
-{% block body %}
 
+{% block navbar %} {% endblock %}
+{% block body %}
   <!-- Title -->
   <!-- Description for search -->
 
  <div>
    <h3>SEARCH BY SEASON</h3>
-  <form id = "search-season-episode" method="GET" action="/map_search">
+  <form id = "search-season-episode" method="GET" action="/map_search/&ltseason&gt/&ltepisode&gt">
    <select name="season" id="season">
     <option value="SHOW ALL" selected disabled hidden>
       ALL SEASONS
@@ -55,19 +56,19 @@
 </form>
 </div>
   <h3>SEARCH BY DOCTOR</h3>
-  <form id="search-doctor" method="GET" action="/map_search">
+  <form id="search-doctor" method="GET" action="/map_search/&ltdoctor&gt">
   <select name="doctor" id="search-doctor">
     <option value="NONE" selected disabled hidden></option>
-    <option value="1">Christopher Eccleston</option>
-    <option value="2">David Tennant</option>
-    <option value="3">Matt Smith</option>
-    <option value="4">Peter Capaldi</option>
-    <option value="5">Jodie Whittaker</option>
+    <option value="Eccleston">Christopher Eccleston</option>
+    <option value="Tennant">David Tennant</option>
+    <option value="Smith">Matt Smith</option>
+    <option value="Capaldi">Peter Capaldi</option>
+    <option value="Whittaker">Jodie Whittaker</option>
   </select>
   <input type="submit" name="submit" value="Submit"/>
 </form>
   <h3>SEARCH BY EPISODE TITLE</h3>
-  <form id="episode-title" action="/map_search" method="GET"> 
+  <form id="episode-title" method="GET" action="/map_search/&lttitle&gt"> 
     <label for="episode-title"></label>
     <input type="text" id="episode-title">
     <br>

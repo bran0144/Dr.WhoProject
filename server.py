@@ -5,10 +5,12 @@ from flask import (Flask, render_template, request, flash, session,
 from model import connect_to_db, db, Episode, Location
 import crud
 from jinja2 import StrictUndefined
+import os
 
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+# GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
 @app.route('/')
 def homepage():
@@ -24,31 +26,32 @@ def get_about_page():
 
 
 @app.route('/map_search/<season>/<episode_number>')
-def create_map_from_season_search():
+def create_map_from_season_search(season, episode_number):
     """Renders map template from search criteria."""
 
     season = request.args.get('season')
     episode_number = request.args.get('episode_number')
     
     if season == "SHOW ALL":
-        latitude, longitude, season, episode_number, title = crud.get_locations()
+        latitude, longitude, season, episode_number, title, doctor = crud.get_locations()
     else:
-        latitude, longitude, season, episode_number, title = crud.get_location_by_season_episode(season, episode_number)
+        latitude, longitude, season, episode_number, title, doctor = crud.get_location_by_season_episode(season, episode_number)
     
     return render_template('map_search.html',
                             latitude=latitude,
                             longtiude=longitude,
                             season=season,
                             episode_number=episode_number,
-                            title=title)
+                            title=title,
+                            doctor=doctor)
 
 @app.route('/map_search/<doctor>')
-def create_map_from_doctor_search():
+def create_map_from_doctor_search(doctor):
     """Renders map template from search criteria."""
 
     doctor = request.args.get('doctor')
 
-    latitude, longitude, season, episode_number, title = crud.get_location_by_doctor(doctor)
+    latitude, longitude, season, episode_number, title, doctor = crud.get_location_by_doctor(doctor)
     
     return render_template('map_search.html',
                             latitude=latitude,
@@ -59,19 +62,20 @@ def create_map_from_doctor_search():
                             doctor=doctor)
 
 @app.route('/map_search/<title>')
-def create_map_from_title_search():
+def create_map_from_title_search(title):
     """Renders map template from search criteria.""" 
 
     title = request.args.get('title')
 
-    latitude, longitude, season, episode_number, title = crud.get_location_by_title(title)
+    latitude, longitude, season, episode_number, title, doctor = crud.get_location_by_title(title)
 
     return render_template('map_search.html',
                             latitude=latitude,
                             longitude=longitude,
                             season=season,
                             episode_number=episode_number,
-                            title=title)
+                            title=title,
+                            doctor=doctor)
 
 
 @app.route("/single_map")
@@ -127,3 +131,4 @@ def location_info():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
+    connect_to_db(app)

@@ -4,13 +4,13 @@ import os
 import csv
 import crud
 import model
-from server import app
+import server
 from decimal import Decimal
 
 os.system('dropdb locations')
 os.system('createdb locations')
 
-model.connect_to_db(app)
+model.connect_to_db(server.app)
 model.db.create_all()
 
 locations_in_db = [] 
