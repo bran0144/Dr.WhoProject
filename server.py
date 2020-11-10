@@ -9,7 +9,6 @@ from jinja2 import StrictUndefined
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
-app.config.from_object('secrets.sh')
 
 @app.route('/')
 def homepage():
@@ -24,7 +23,7 @@ def get_about_page():
     return render_template('about.html')
 
 
-@app.route('/map_search')
+@app.route('/map_search/<season>/<episode_number>')
 def create_map_from_season_search():
     """Renders map template from search criteria."""
 
@@ -43,7 +42,7 @@ def create_map_from_season_search():
                             episode_number=episode_number,
                             title=title)
 
-@app.route('/map_search')
+@app.route('/map_search/<doctor>')
 def create_map_from_doctor_search():
     """Renders map template from search criteria."""
 
@@ -59,7 +58,7 @@ def create_map_from_doctor_search():
                             title=title,
                             doctor=doctor)
 
-@app.route('/map_search')
+@app.route('/map_search/<title>')
 def create_map_from_title_search():
     """Renders map template from search criteria.""" 
 

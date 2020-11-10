@@ -43,12 +43,12 @@ def get_locations():
 def get_location_by_id(location_id):
     """Returns location by id."""
 
-    return db.session.query(Location).filter(Location.location_id == location_id).all()
+    return db.session.query(Location).filter_by(location_id = location_id).all()
 
 def get_location_by_ep_id(ep_id):
     """Returns locations by ep_id."""
 
-    return db.session.query(Location).filter(Location.ep_id == ep_id).all()
+    return db.session.query(Location).filter_by(ep_id = ep_id).all()
 
 def get_location_by_season_episode(season, episode_number):
     """Returns locations by season and episode."""

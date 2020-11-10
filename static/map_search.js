@@ -3,6 +3,8 @@
 // send and what api call should be
 // do we call api before rendering map? then send that data through initMap?
 
+
+
 function initMap() {
     const map = new google.maps.Map($('#searched_map')[0], {
       center: {
