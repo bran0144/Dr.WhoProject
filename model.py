@@ -34,7 +34,7 @@ class Location(db.Model):
     episodes = db.relationship('Episode', backref='locations')
 
     def __repr__(self):
-        return f'<Location location_id={self.location_id} longitude={self.longitude} latitude={self.latitude}>'
+        return f'<Location location_id={self.location_id} longitude={self.longitude} latitude={self.latitude} ep_id={self.ep_id}>'
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///locations', echo=True):
