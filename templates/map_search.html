@@ -6,13 +6,18 @@
 <script src="/static/map_search.js"></script>
 <script
 async defer
-src="https://maps.googleapis.com/maps/api/js?key=[APIKEY]&callback=initMap">
+src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}&callback=initMap">
 </script>
 {% endblock %}
 
 {% block body %}
 {% block navbar %} {% endblock %}
   <!-- <h1>Heading with flexible info given search parameters</h1> -->
+  <ul>
+  {% for location in locations %}
+    <li>{{location.latitude, location.longitude, location.location_id}}</li>
+  {% endfor %}
+  </ul>
 
   <main>
     <section class="map">

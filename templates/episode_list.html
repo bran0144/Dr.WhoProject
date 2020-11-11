@@ -7,11 +7,9 @@
 <ul>
     {% for episode in episodes %}
       <li>
-        <a href="/episodes/{{ episode.ep_id }}">
           {{ episode.title, episode.imdb }}
         </a>
-        <!-- <a href= not sure what this is yet> -->
-            <!-- {{e}} -->
+      
       </li>
     {% endfor %}
   </ul>

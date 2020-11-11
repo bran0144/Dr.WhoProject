@@ -27,85 +27,48 @@ def get_about_page():
 
 @app.route('/map_search/<season>/<episode_number>')
 def create_map_from_season_search(season, episode_number):
-    """Renders map template from search criteria."""
-
-    season = request.args.get('season')
-    episode_number = request.args.get('episode_number')
+    """Renders map template from search criteria by season and episode number."""
     
     if season == "SHOW ALL":
-        latitude, longitude, season, episode_number, title, doctor = crud.get_locations()
+        all_locations = crud.get_locations()
+        return render_template('map_search.html', locations=all_locations)
     else:
-        latitude, longitude, season, episode_number, title, doctor = crud.get_location_by_season_episode(season, episode_number)
-    
-    return render_template('map_search.html',
-                            latitude=latitude,
-                            longtiude=longitude,
-                            season=season,
-                            episode_number=episode_number,
-                            title=title,
-                            doctor=doctor)
+        locations_by_season_episode = crud.get_location_by_season_episode(season, episode_number)
+        return render_template('map_search.html', locations=locations_by_season_episode)
 
 @app.route('/map_search/<doctor>')
 def create_map_from_doctor_search(doctor):
-    """Renders map template from search criteria."""
-
-    doctor = request.args.get('doctor')
-
-    latitude, longitude, season, episode_number, title, doctor = crud.get_location_by_doctor(doctor)
+    """Renders map template from search criteria by doctor."""
     
-    return render_template('map_search.html',
-                            latitude=latitude,
-                            longitude=longitude,
-                            season=season,
-                            episode_number=episode_number,
-                            title=title,
-                            doctor=doctor)
+    locations_by_doctor = crud.get_location_by_doctor(doctor)
+    
+    return render_template('map_search.html', locations=locations_by_doctor)
+
 
 @app.route('/map_search/<title>')
 def create_map_from_title_search(title):
-    """Renders map template from search criteria.""" 
+    """Renders map template from search criteria by episode title.""" 
 
-    title = request.args.get('title')
+    locations_by_title = crud.get_location_by_title(title)
 
-    latitude, longitude, season, episode_number, title, doctor = crud.get_location_by_title(title)
-
-    return render_template('map_search.html',
-                            latitude=latitude,
-                            longitude=longitude,
-                            season=season,
-                            episode_number=episode_number,
-                            title=title,
-                            doctor=doctor)
+    return render_template('map_search.html', locations=locations_by_title)
 
 
 @app.route("/single_map")
 def show_single_map(location_id):
     """View map of single pin."""
 
-    # renders google map and info box
-    # based on click of pin from searched map page
-
-    latitude, longitude, address, season, episode_number, title, imdb = crud.get_location_by_id(location_id)
+    location_by_id = crud.get_location_by_id(location_id)
     
-    return render_template('/single_map.html', latitude=latitude,
-                                        longitude=longitude,
-                                        address=address,
-                                        season=season,
-                                        episode_number=episode_number,
-                                        title=title,
-                                        imdb=imdb)
+    return render_template('/single_map.html', location_by_id=location_by_id)
 
 @app.route("/episode_list")
 def create_list_of_episodes():
     """View full list of episodes."""
 
-    season, episode_number, doctor, title, imdb = crud.get_episodes()
+    list_of_episodes = crud.get_episodes()
 
-    return render_template('episode_list.html', season=season,
-                                                episode_number=episode_number,
-                                                doctor=doctor,
-                                                title=title,
-                                                imdb=imdb)
+    return render_template('episode_list.html', list_of_episodes=list_of_episodes)
                                 
 @app.route("/locations.json")
 def location_info():
@@ -113,22 +76,45 @@ def location_info():
 
     film_locations = [
         {
-            "location_id": Location.location_id,
-            "address": Location.address,
-            "longitude": Location.longitude,
-            "latitude": Location.latitude,
-            "ep_id": Location.ep_id,
-            "season": Episode.season,
-            "episode_number": Episode.episode_number,
-            "doctor": Episode.doctor,
-            "title": Episode.title,
-            "imdb": Episode.imdb
+            "location_id": location.location_id,
+            "address": location.address,
+            "longitude": location.longitude,
+            "latitude": location.latitude,
+            "ep_id": location.ep_id,
+            "season": episode.season,
+            # "episode_number": location.episode.episode_number,
+            # "doctor": location.episode.doctor,
+            # "title": location.episode.title,
+            # "imdb": location.episode.imdb
         }
-        for location in Location.query.all()
+        for location in db.session.query(Location).join(Episode).all()
+        # for location in Location.query.all()
     ]
 
     return jsonify(film_locations)
 
+# @app.route("/locations_by_season.json")
+# def filter_locations_by_season():
+#     """Filtered location data in JSON format"""
+#     seasoned_filtered_locations = [
+#         {
+#             "location_id": location.location_id,
+#             "address": location.address,
+#             "longitude": location.longitude,
+#             "latitude": location.latitude,
+#             "ep_id": location.ep_id,
+#             "season": location.season,
+#             "episode_number": location.episode_number,
+#             "doctor": location.doctor,
+#             "title": location.title,
+#             "imdb": location.imdb
+#         }
+#      for location in db.session.query(Location).join(Episode)filter    .all()
+
+#     return jsonify(season_filtered_locations)
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
     connect_to_db(app)
+    app.run(host='0.0.0.0', debug=True)
+   

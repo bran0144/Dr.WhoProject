@@ -19,13 +19,15 @@
     
     
     {% block navbar %}
-    <nav class="navbar sticky-top">
-      <a id="dr-who-logo" class="active" href="#">Doctor Who What Where</a>
-      <div class="active" id="navbarContent">
-            <a class="nav-link" href="#about">About</a>
-            <a class="nav-link" href="#home">Search</a>
-            <a class="nav-link" href="#episode_list">Episode List</a>
-            <a class="nav-link" href="#contact">Contact</a>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" id="dr-who-logo" class="brand-logo right">Doctor Who What Where</a>
+        <ul id="nav-bar" class="left hide-on-med-and-down">
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#home">Search</a></li>
+            <li><a class="nav-link" href="#episode_list">Episode List</a></li>
+            <li><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
       </div>
     </nav>
     {% endblock %}

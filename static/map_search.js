@@ -8,8 +8,8 @@ const LatLngObject = {lat: 0, lng:0};
 function initMap() {
   $.get('/locations.json', (data) => {
     const response = JSON.parse(data);
-    latLngObject['latitude'] = response.locations.latitude;
-    latLngObject['longitude'] = response.locations.longitude;
+    latLngObject['latitude'] = response.film_locations.latitude;
+    latLngObject['longitude'] = response.film_locations.longitude;
     const searched_map = new.google.maps.Map(
       document.querySelector('#searched_map'),
       {

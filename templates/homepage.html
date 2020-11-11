@@ -9,10 +9,10 @@
 {% block body %}
   <!-- Title -->
   <!-- Description for search -->
-
+  <!-- action="/map_search/&ltseason&gt/&ltepisode&gt" -->
  <div>
    <h3>SEARCH BY SEASON</h3>
-  <form id = "search-season-episode" method="GET" action="/map_search/&ltseason&gt/&ltepisode&gt">
+  <form id = "search-season-episode" method="GET" >
    <select name="season" id="season">
     <option value="SHOW ALL" selected disabled hidden>
       ALL SEASONS
@@ -55,8 +55,10 @@
   <input type="submit" name="submit" value="Submit"/>
 </form>
 </div>
+
+<!-- action="/map_search/&ltdoctor&gt" -->
   <h3>SEARCH BY DOCTOR</h3>
-  <form id="search-doctor" method="GET" action="/map_search/&ltdoctor&gt">
+  <form id="search-doctor" method="GET" >
   <select name="doctor" id="search-doctor">
     <option value="NONE" selected disabled hidden></option>
     <option value="Eccleston">Christopher Eccleston</option>
@@ -68,13 +70,13 @@
   <input type="submit" name="submit" value="Submit"/>
 </form>
   <h3>SEARCH BY EPISODE TITLE</h3>
-  <form id="episode-title" method="GET" action="/map_search/&lttitle&gt"> 
+  <form id="episode-title" method="GET" > 
     <label for="episode-title"></label>
     <input type="text" id="episode-title">
     <br>
     <input type="submit" value="Submit">
   </form>
-
+  <!-- action="/map_search/&lttitle&gt" -->
 
   <script src="/static/homepage.js"></script>
 {% endblock %}

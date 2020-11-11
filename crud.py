@@ -18,7 +18,7 @@ def create_episode(season, episode_number, doctor, title, imdb, ep_id):
     return episode
 
 def get_episodes():
-    """Returns all locations."""
+    """Returns all episodes."""
 
     return db.session.query(Episode).all()
 
