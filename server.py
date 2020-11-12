@@ -33,12 +33,20 @@ def create_map_from_season_search():
     season = request.args.get("season")
     episode = request.args.get("episode")
 
-    if season == "SHOW ALL":
-        all_locations = crud.get_locations()
-        return render_template('map_search.html', locations=all_locations)
-    else:
-        locations_by_season_episode = crud.get_location_by_season_episode(season, episode)
-        return render_template('map_search.html', locations=locations_by_season_episode)
+    locations_by_season = [
+        {
+            "latitude": str(location.latitude),
+            "longitude": str(location.longitude),
+            "ep_id": location.ep_id,
+            "address": location.address
+
+        }
+        for location in crud.get_location_by_season_episode(season, episode)
+    ]
+
+    json_locations = json.dumps(locations_by_season)
+       
+    return render_template('map_search.html', locations=json_locations)
 
 @app.route('/map_search_doctor')
 def create_map_from_doctor_search():
@@ -46,8 +54,17 @@ def create_map_from_doctor_search():
     
     doctor = request.args.get("doctor")
     
-    locations_by_doctor = crud.get_location_by_doctor(doctor)
-    
+    locations_by_doctor = [
+        {
+            "latitude": str(location.latitude),
+            "longitude": str(location.longitude),
+            "ep_id": location.ep_id,
+            "address": location.address
+
+        }
+        for location in crud.get_location_by_doctor(doctor)
+    ]
+
     json_locations = json.dumps(locations_by_doctor)
     return render_template('map_search.html', locations=json_locations)
 
@@ -58,18 +75,37 @@ def create_map_from_title_search():
 
     title = request.args.get("title")
 
-    locations_by_title = crud.get_location_by_title(title)
+    locations_by_title = [
+        {
+            "latitude": str(location.latitude),
+            "longitude": str(location.longitude),
+            "ep_id": location.ep_id,
+            "address": location.address
+        }
+        for location in crud.get_location_by_title(title)
+    ]
 
-    return render_template('map_search.html', locations=locations_by_title)
+    json_locations = json.dumps(locations_by_title)
+
+    return render_template('map_search.html', locations=json_locations)
 
 
 @app.route("/single_map")
 def show_single_map(location_id):
     """View map of single pin."""
 
-    location_by_id = crud.get_location_by_id(location_id)
-    
-    return render_template('/single_map.html', location_by_id=location_by_id)
+    location_by_id = [
+        {
+            "latitude": str(location.latitude),
+            "longitude": str(location.longitude),
+            "ep_id": location.ep_id,
+            "address": location.address
+        }
+        for location in crud.get_location_by_id(location_id)
+    ]
+    json_locations = json.dumps(location_by_id)
+
+    return render_template('/single_map.html', location_by_id=json_locations)
 
 @app.route("/episode_list")
 def create_list_of_episodes():
