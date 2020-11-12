@@ -16,6 +16,8 @@ class Episode(db.Model):
     title = db.Column(db.String(100), nullable=False)
     imdb = db.Column(db.Text, nullable=False)
 
+    # locations = db.relationship('Location', backref='episodes')
+
     def __repr__(self):
         return f'<episode_id={self.ep_id} title={self.title}>'
 

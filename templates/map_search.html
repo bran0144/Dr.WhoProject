@@ -3,27 +3,80 @@
 <link rel="stylesheet" href="/static/style.css">
 
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script src="/static/map_search.js"></script>
+<!-- <script src="/static/map_search.js"></script> -->
 <script
-async defer
-src="https://maps.googleapis.com/maps/api/js?key={GOOGLE_API_KEY}&callback=initMap">
+defer
+src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly">
+</script>
+
+{{locations}}
+<!-- <script type=text/javascript>
+
+  const data = ({{ locations|tojson }});
+  console.log(data);
+</script> -->
+
+
+<script>
+
+// const locations = JSON.parse(locations);
+
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("searched_map"), {
+    center: { lat: 51.509865, lng: -0.118092 },
+    zoom: 5,
+  });
+   const locationMarker = new google.maps.Marker({
+      position: {
+        lat : 52.988765,
+        lng: -0.1578877
+        // lat: locations.latitude,
+        // lng: locations.longitude
+    },
+        map: map,
+          });
+}
+
+// let map;
+
+// function initMap() {
+ 
+//     // latLngObject['latitude'] = locations.latitude;
+//     // latLngObject['longitude'] = locations.longitude;
+    
+//     const searched_map = new.google.maps.Map(
+//       document.querySelector('#searched_map'),
+//       {
+//         center: {
+//           lat: 51.509865,
+//           lng: -0.118092
+//       },
+//         zoom: 5,
+//       });
+    // const locationMarker = new google.maps.Marker({
+    //   position: {
+    //     lat : 52.988765,
+    //     lng: -0.1578877
+    //     // lat: locations.latitude,
+    //     // lng: locations.longitude
+  //   // },
+  //       map: searched_map,
+  //         });
+  // }
+
 </script>
 {% endblock %}
-
 {% block body %}
 {% block navbar %} {% endblock %}
-  <!-- <h1>Heading with flexible info given search parameters</h1> -->
-  <ul>
-  {% for location in locations %}
-    <li>{{location.latitude, location.longitude, location.location_id}}</li>
-  {% endfor %}
-  </ul>
-
-  <main>
-    <section class="map">
+<h1>HI</h1>
+ 
+ 
       <div id="searched_map"></div>
-    </section>
-  </main>
+
+
 
 
 {% endblock %}

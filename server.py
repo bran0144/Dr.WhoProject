@@ -6,6 +6,7 @@ from model import connect_to_db, db, Episode, Location
 import crud
 from jinja2 import StrictUndefined
 import os
+import json
 
 app = Flask(__name__)
 app.secret_key = "dev"
@@ -47,7 +48,8 @@ def create_map_from_doctor_search():
     
     locations_by_doctor = crud.get_location_by_doctor(doctor)
     
-    return render_template('map_search.html', locations=locations_by_doctor)
+    json_locations = json.dumps(locations_by_doctor)
+    return render_template('map_search.html', locations=json_locations)
 
 
 @app.route('/map_search_title')
