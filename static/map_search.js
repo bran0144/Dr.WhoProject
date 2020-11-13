@@ -29,31 +29,16 @@ function initMap() {
 
 
 
-
-
-
-// function initMap() {
-//     const map = new google.maps.Map($('#searched_map')[0], {
-//       center: {
-//         lat: 51.509865,
-//         lng: -0.118092
-//       },
-//       zoom: 5,
-
-//     //   styles: MAPSTYLES,  // mapStyles is defined in mapstyles.js
-//       mapTypeId: "terrain",
-//     });
-
 //     const locationInfo = new google.maps.InfoWindow();
 
-//     $.get('/locations.json', (locations) => {
-//         for (const location of locations) {
-          // Define the content of the infoWindow
+//     $.get('/episodes.json', (episodes => {
+//         for (const episode of episodes) {
+         
           // const locationInfoContent = (`
           // <div class="window-content">
           // // <div class="tardis-thumbnail">
           // //   <img
-          // //     src="/static/img/tardis.jpg"
+          // //     src="/static/img/tardis.png"
           // //     alt="tardis"
           // //   />
           // // </div>
@@ -63,19 +48,12 @@ function initMap() {
           //       <li><b>Episode Number</b>${Episode.episode_number}</li>
           //       <li><b>Doctor</b>${Episode.doctor}</li>
           //       <li><b>Title</b>${Episode.title}</li>
-          //       <li><b>Address</b>${Location.address}</li>
+          //       <li><b>IMDB Link</b>${Episode.imdb}</li>
           //     </ul>
           // `);
     
-          // const locationMarker = new google.maps.Marker({
-          //   position: {
-          //     lat: Location.latitude,
-          //     lng: Location.longitude
-          //   },
-          //   map: map,
-          // });
     
-          // locationMarker.addListener('click', () => {
+          // locationMarker.addEventListener('mouseover', () => {
           //   locationInfo.close();
           //   locationInfo.setContent(locationInfoContent);
           //   locationInfo.open(map, locationMarker);
@@ -87,3 +65,12 @@ function initMap() {
     //     `));
     //   });
     // }
+ 
+    // this should work on click to take you to route , but how to send location_id
+    //  .on event delegation - takes one or more events
+    // .on('click', [selector] [data], handler)
+    // can use $.ajax - can set converters (will convert json to jquery parseJson)
+    // data, method = GET, or PUT?, url (where request is sent), 
+    // could do XMLHttpRequest
+
+    

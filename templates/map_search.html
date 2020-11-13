@@ -10,9 +10,8 @@ src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=
 </script>
 
 <script>
-  {{locations}}
-  latLngObject['lat'] = locations.latitude;
-  latLngObject['long'] = locations.longitude;
+  const locations = {{ locations|tojson|safe }};
+
 </script>
 <script>
 
@@ -26,28 +25,22 @@ function initMap() {
 
   locations.forEach(location => {
     const address = location.address;
-    const latLng = {'lat': location.latitude, 'lng': location.longitude};
-  })
-  const locationMarker = new google.maps.Marker({
-        position: lagLng,
+    const latLng = {'lat': Number(location.latitude), 'lng': Number(location.longitude)};
+  
+    const locationMarker = new google.maps.Marker({
+        position: latLng,
         map: map,
-      }
-  );
-  
-  
+    });
+}) 
+} 
 
 </script>
 {% endblock %}
 {% block body %}
 {% block navbar %} {% endblock %}
 
-
-
- 
  
       <div id="searched_map"></div>
-
-
 
 
 {% endblock %} 
