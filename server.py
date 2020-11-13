@@ -111,7 +111,7 @@ def create_list_of_episodes():
 
     list_of_episodes = crud.get_episodes()
 
-    return render_template('episode_list.html', list_of_episodes=list_of_episodes)
+    return render_template('episode_list.html', episodes=list_of_episodes)
                                 
 @app.route("/episodes.json")
 def episode_info():

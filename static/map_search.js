@@ -3,30 +3,6 @@
 // send and what api call should be
 // do we call api before rendering map? then send that data through initMap?
 
-const LatLngObject = {lat: 0, lng:0};
-
-function initMap() {
-  $.get('/locations.json', (data) => {
-    const response = JSON.parse(data);
-    latLngObject['latitude'] = response.film_locations.latitude;
-    latLngObject['longitude'] = response.film_locations.longitude;
-    const searched_map = new.google.maps.Map(
-      document.querySelector('#searched_map'),
-      {
-        center: latLngObject,
-        zoom: 9,
-      });
-    const locationMarker = new google.maps.Marker({
-      position: {
-        lat: Location.latitude,
-        lng: Location.longitude
-    },
-        map: searched_map,
-          });
-  })
-}
-
-
 
 
 //     const locationInfo = new google.maps.InfoWindow();

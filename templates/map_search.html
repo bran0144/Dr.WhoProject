@@ -26,13 +26,44 @@ function initMap() {
   locations.forEach(location => {
     const address = location.address;
     const latLng = {'lat': Number(location.latitude), 'lng': Number(location.longitude)};
-  
+    const location_ep_id = location.ep_id;
+    const location_id = location.location_id;
+    const tardis = {
+      url : "/static/img/tardis.png",
+    }; 
     const locationMarker = new google.maps.Marker({
         position: latLng,
+        location_ep_id: location_ep_id,
+        location_id: location_id,
         map: map,
+        icon: tardis
     });
+    const locationInfo = new google.maps.InfoWindow();
+      $.get('/episodes.json', (episodes => {
+        for (const episode of episodes) {
+         
+          const ep_id = episode.ep_id;
+          locationMarker.get(location_ep_id)
+          const locationInfoContent = (
+          <div class="window-content">
+              <ul class="location-info">
+                <li><b>Season</b>${episode.season}</li>
+                <li><b>Episode Number</b>${episode.episode_number}</li>
+                <li><b>Doctor</b>${episode.doctor}</li>
+                <li><b>Title</b>${episode.title}</li>
+                <li><b>IMDB Link</b>${episode.imdb}</li>
+              </ul>
+          </div>
+          ); 
+          // TODO: need to connect info box ep_id to marker ep_id
+          locationMarker.addEventListener('mouseover', () => {
+            locationInfo.close();
+            locationInfo.setContent(locationInfoContent);
+            locationInfo.open(map, locationMarker);
+          });
+          // need a mouseout event listener to close infowindow
 }) 
-} 
+ 
 
 </script>
 {% endblock %}

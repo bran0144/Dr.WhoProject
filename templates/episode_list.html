@@ -3,17 +3,23 @@
 
 {% block body %}
 <h2>Episode List</h2> 
-    
+
+
 <ul>
+
     {% for episode in episodes %}
-      <li>
-          {{ episode.title, episode.imdb }}
-        </a>
-      
-      </li>
+    <div>
+      <p>
+      <li>{{ episode.title }}</li> 
+      <li>{{ episode.doctor }}</li> 
+      <li><a href="{{ episode.imdb }}">IMDB Link</a></li> 
+      <li><a href="/map_search_season">Link to Map</a></li>
+    </p>
+    </div>
+    
+    
     {% endfor %}
-  </ul>
- 
+</ul>
 
 
 {% endblock %}
