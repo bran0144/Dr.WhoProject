@@ -5,21 +5,21 @@
 <h2>Episode List</h2> 
 
 
-<ul>
+
 
     {% for episode in episodes %}
-    <div>
-      <p>
-      <li>{{ episode.title }}</li> 
-      <li>{{ episode.doctor }}</li> 
-      <li><a href="{{ episode.imdb }}">IMDB Link</a></li> 
-      <li><a href="/map_search_season">Link to Map</a></li>
-    </p>
+    <div class=list_of_episodes>
+      
+      <div>{{ episode.title }} 
+      {{ episode.doctor }} 
+      <a href="{{ episode.imdb }}">IMDB Link</a>
+      <a href={{ url_for('create_map_from_season_search', season=episode.season, episode=episode.episode_number )}}>Link to Map</a></div>
+    
     </div>
     
     
     {% endfor %}
-</ul>
+
 
 
 {% endblock %}

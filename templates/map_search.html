@@ -18,7 +18,7 @@ src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=
 let map;
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("searched_map"), {
+  const map = new google.maps.Map(document.getElementById("searched_map"), {
     center: { lat: 51.509865, lng: -0.118092 },
     zoom: 5,
   });
@@ -28,15 +28,15 @@ function initMap() {
     const latLng = {'lat': Number(location.latitude), 'lng': Number(location.longitude)};
     const location_ep_id = location.ep_id;
     const location_id = location.location_id;
-    const tardis = {
-      url : "/static/img/tardis.png",
-    }; 
+   
     const locationMarker = new google.maps.Marker({
         position: latLng,
         location_ep_id: location_ep_id,
         location_id: location_id,
         map: map,
-        icon: tardis
+        icon: {
+                url: "/static/img/tardis.png",
+                size:new google.maps.Size(20, 34)}
     });
     const locationInfo = new google.maps.InfoWindow();
       $.get('/episodes.json', (episodes => {
@@ -44,6 +44,7 @@ function initMap() {
          
           const ep_id = episode.ep_id;
           locationMarker.get(location_ep_id)
+          //TODO need to connect ep_id to location_ep_id
           const locationInfoContent = (
           <div class="window-content">
               <ul class="location-info">
@@ -55,15 +56,17 @@ function initMap() {
               </ul>
           </div>
           ); 
-          // TODO: need to connect info box ep_id to marker ep_id
+         
           locationMarker.addEventListener('mouseover', () => {
             locationInfo.close();
             locationInfo.setContent(locationInfoContent);
             locationInfo.open(map, locationMarker);
           });
-          // need a mouseout event listener to close infowindow
+          // need a mouseout event listener to close infowindow?
 }) 
  
+// TODO: Need another event listener for click that takes location_id
+// and sends as a get to single_map route to render single_map page
 
 </script>
 {% endblock %}

@@ -4,7 +4,7 @@
 <script src="/static/single_map.js"></script>
 <script
   async defer
-  src="https://maps.googleapis.com/maps/api/js?key=[APIKEY]&callback=initMap"
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
   type="text/javascript"
 ></script>
 <link rel="stylesheet" type="text/css" href="/static/style.css" />
@@ -12,6 +12,11 @@
 {% block body %}
 {% block navbar %} {% endblock %}
   <!-- <h1>Have a heading with flexible info given search parameters</h1> -->
+
+  <script>
+    const location = {{ location_by_id|tojson|safe }};
+  </script>
+
 
   <!-- Map here with single pin -->
   <div id="single-map"></div>
