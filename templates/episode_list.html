@@ -6,19 +6,29 @@
 
 
 
-
-    {% for episode in episodes %}
+      {% if episode.season == "1" %}
     <div class=list_of_episodes>
-      
-      <div>{{ episode.title }} 
-      {{ episode.doctor }} 
+      <h3>Season One</h3>
+      {% for episode in episodes %}
+      <div>"{{ episode.title }}" 
+      Doctor: {{ episode.doctor }} 
       <a href="{{ episode.imdb }}">IMDB Link</a>
       <a href={{ url_for('create_map_from_season_search', season=episode.season, episode=episode.episode_number )}}>Link to Map</a></div>
-    
     </div>
+      {% endfor %}
+      {% elif episode.season == "2" %}
+      <div class=list_of_episodes>
+        <h3>Season Two</h3>
+        {% for episode in episodes %}
+        <div>"{{ episode.title }}" 
+        Doctor: {{ episode.doctor }} 
+        <a href="{{ episode.imdb }}">IMDB Link</a>
+        <a href={{ url_for('create_map_from_season_search', season=episode.season, episode=episode.episode_number )}}>Link to Map</a></div>
+      </div>
+      {% endfor %}
     
-    
-    {% endfor %}
+    {% endif %}
+   
 
 
 

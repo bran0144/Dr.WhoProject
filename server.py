@@ -88,11 +88,9 @@ def create_map_from_title_search():
     return render_template('map_search.html', locations=locations_by_title)
 
 
-@app.route("/single_map")
-def show_single_map():
+@app.route("/single_map/<location_id>")
+def show_single_map(location_id):
     """View map of single pin."""
-
-    location_id  = request.args.get("location_id")
     
     location = crud.get_location_by_id(location_id)
 

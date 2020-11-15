@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
 {% block head %}
 <link rel="stylesheet" href="/static/style.css">
-
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-
 <script
 defer
 src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly">
@@ -14,6 +12,30 @@ src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=
 
 </script>
 <script>
+
+function setupMouseOver(map, locationMarker, location_ep_id) {
+  $.get('/api/episodes/' + location_ep_id, function(episodeInfo){
+      locationInfoContent = (`
+          <div class="window-content">
+              <ul class="episode-info">
+                <li>Season:${episodeInfo.season}</li>
+                <li>Episode Number:${episodeInfo.episode_number}</li>
+                <li>Doctor:${episodeInfo.doctor}</li>
+                <li>Title:${episodeInfo.title}</li>
+                <li>IMDB Link:${episodeInfo.imdb}</li>
+              </ul>
+          </div>
+          `); 
+   
+    console.log(episodeInfo);
+    const infoWindow = new google.maps.InfoWindow({
+      content: locationInfoContent,
+    });
+    locationMarker.addListener('mouseover', () => {
+        infoWindow.open(map, locationMarker);
+          });
+    }); 
+  }
 
 let map;
 
@@ -29,38 +51,24 @@ function initMap() {
     const location_ep_id = location.ep_id;
     const location_id = location.location_id;
     const tardis = "/static/img/tardis-thumbnail.png";
-    var locationInfoContent;
-   
-    $.get('/api/episodes/' + location_ep_id, function(episodeInfo){
-      locationInfoContent = (`
-          <div class="window-content">
-              <ul class="episode-info">
-                <li>Season:${episodeInfo.season}</li>
-                <li>Episode Number:${episodeInfo.episode_number}</li>
-                <li>Doctor:${episodeInfo.doctor}</li>
-                <li>Title:${episodeInfo.title}</li>
-                <li>IMDB Link:${episodeInfo.imdb}</li>
-              </ul>
-          </div>
-          `); 
-    });
-    console.log(locationInfoContent);        
-    const infoWindow = new google.maps.InfoWindow({
-      content: locationInfoContent,
-    });
+    
+    
     const locationMarker = new google.maps.Marker({
         position: latLng,
         map: map,
         icon: tardis,
         location_ep_id: location_ep_id,
         location_id: location_id,        
-        url: "/single_map",
+        url: "/single_map/" + location_id,
     });
-        
-   locationMarker.addListener('mouseover', () => {
-        infoWindow.open(map, locationMarker);
-          });
+   setupMouseOver(map, locationMarker, location_ep_id); 
     
+   locationMarker.addListener('mouseout', () => {
+        infoWindow.close(map, locationMarker);
+          });
+    locationMarker.addListener('click', () => {
+        window.location.href = locationMarker.url;
+          });
 }); 
   } 
 
@@ -68,7 +76,6 @@ function initMap() {
 </script>
 {% endblock %}
 {% block body %}
-{% block navbar %} {% endblock %}
 
  
       <div id="searched_map"></div>
