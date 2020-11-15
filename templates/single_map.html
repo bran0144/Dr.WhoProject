@@ -1,30 +1,48 @@
 {% extends 'base.html' %}
-{% block title %}{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/style.css" />
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-<script src="/static/single_map.js"></script>
 <script
   async defer
-  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly"
-  type="text/javascript"
-></script>
-<link rel="stylesheet" type="text/css" href="/static/style.css" />
+  src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly">
+</script>
 
+
+<script>
+  const single_location = {{ location_by_id|tojson|safe }};
+</script>
+
+<script>
+const address = single_location.address;
+const latLng = {'lat': Number(single_location.latitude), 'lng': Number(single_location.longitude)};
+const location_ep_id = single_location.ep_id;
+
+let map;
+
+function initMap() {
+    const map = new google.maps.Map(document.getElementById('single-map'), {
+      center: latLng,
+      zoom: 8,
+    });
+   
+    const tardis = "/static/img/tardis-thumbnail.png";
+    const locationMarker = new google.maps.Marker({
+      position: latLng,
+      location_ep_id: location_ep_id,
+      map: map,
+      icon: tardis,
+  });
+}
+
+</script>
+{% endblock %}
 {% block body %}
+
 {% block navbar %} {% endblock %}
-  <!-- <h1>Have a heading with flexible info given search parameters</h1> -->
-
-  <script>
-    const location = {{ location_by_id|tojson|safe }};
-  </script>
-
-
-  <!-- Map here with single pin -->
-  <div id="single-map"></div>
-  <!-- Info box with address and episode info -->
  
 
-  <div id="info-box">
-    
 
-  </div>
+  <div id="single-map"></div>
+ 
+ 
 {% endblock %}

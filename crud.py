@@ -22,6 +22,11 @@ def get_episodes():
 
     return db.session.query(Episode).all()
 
+def get_episode_by_id(ep_id):
+    """Returns episode by episode_id."""
+
+    return db.session.query(Episode).filter(Episode.ep_id == ep_id).first()
+
 def create_location(address, longitude, latitude, ep_id):
     """Create and return a new episode"""
 
@@ -43,7 +48,7 @@ def get_locations():
 def get_location_by_id(location_id):
     """Returns location by id."""
 
-    return db.session.query(Location).filter_by(location_id = location_id).all()
+    return db.session.query(Location).join(Episode).filter(Location.location_id == location_id).first()
 
 def get_location_by_ep_id(ep_id):
     """Returns locations by ep_id."""

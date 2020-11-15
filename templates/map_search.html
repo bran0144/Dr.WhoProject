@@ -28,45 +28,42 @@ function initMap() {
     const latLng = {'lat': Number(location.latitude), 'lng': Number(location.longitude)};
     const location_ep_id = location.ep_id;
     const location_id = location.location_id;
+    const tardis = "/static/img/tardis-thumbnail.png";
+    var locationInfoContent;
    
-    const locationMarker = new google.maps.Marker({
-        position: latLng,
-        location_ep_id: location_ep_id,
-        location_id: location_id,
-        map: map,
-        icon: {
-                url: "/static/img/tardis.png",
-                size:new google.maps.Size(20, 34)}
-    });
-    const locationInfo = new google.maps.InfoWindow();
-      $.get('/episodes.json', (episodes => {
-        for (const episode of episodes) {
-         
-          const ep_id = episode.ep_id;
-          locationMarker.get(location_ep_id)
-          //TODO need to connect ep_id to location_ep_id
-          const locationInfoContent = (
+    $.get('/api/episodes/' + location_ep_id, function(episodeInfo){
+      locationInfoContent = (`
           <div class="window-content">
-              <ul class="location-info">
-                <li><b>Season</b>${episode.season}</li>
-                <li><b>Episode Number</b>${episode.episode_number}</li>
-                <li><b>Doctor</b>${episode.doctor}</li>
-                <li><b>Title</b>${episode.title}</li>
-                <li><b>IMDB Link</b>${episode.imdb}</li>
+              <ul class="episode-info">
+                <li>Season:${episodeInfo.season}</li>
+                <li>Episode Number:${episodeInfo.episode_number}</li>
+                <li>Doctor:${episodeInfo.doctor}</li>
+                <li>Title:${episodeInfo.title}</li>
+                <li>IMDB Link:${episodeInfo.imdb}</li>
               </ul>
           </div>
-          ); 
-         
-          locationMarker.addEventListener('mouseover', () => {
-            locationInfo.close();
-            locationInfo.setContent(locationInfoContent);
-            locationInfo.open(map, locationMarker);
+          `); 
+    });
+    console.log(locationInfoContent);        
+    const infoWindow = new google.maps.InfoWindow({
+      content: locationInfoContent,
+    });
+    const locationMarker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        icon: tardis,
+        location_ep_id: location_ep_id,
+        location_id: location_id,        
+        url: "/single_map",
+    });
+        
+   locationMarker.addListener('mouseover', () => {
+        infoWindow.open(map, locationMarker);
           });
-          // need a mouseout event listener to close infowindow?
-}) 
- 
-// TODO: Need another event listener for click that takes location_id
-// and sends as a get to single_map route to render single_map page
+    
+}); 
+  } 
+
 
 </script>
 {% endblock %}

@@ -89,20 +89,18 @@ def create_map_from_title_search():
 
 
 @app.route("/single_map")
-def show_single_map(location_id):
+def show_single_map():
     """View map of single pin."""
 
-    location_by_id = [
-        {
-            "latitude": str(location.latitude),
+    location_id  = request.args.get("location_id")
+    
+    location = crud.get_location_by_id(location_id)
+
+    location_by_id = {"latitude": str(location.latitude),
             "longitude": str(location.longitude),
             "ep_id": location.ep_id,
-            "address": location.address,
-            "location_id": location.location_id
-        }
-        for location in crud.get_location_by_id(location_id)
-    ]
-   
+            "address": location.address}
+           
     return render_template('/single_map.html', location_by_id=location_by_id)
 
 @app.route("/episode_list")
@@ -113,12 +111,12 @@ def create_list_of_episodes():
 
     return render_template('episode_list.html', episodes=list_of_episodes)
                                 
-@app.route("/episodes.json")
-def episode_info():
+@app.route("/api/episodes/<ep_id>")
+def episode_info(ep_id):
     """JSON information about episodes."""
 
-    episode_info = [
-        {
+    episode = crud.get_episode_by_id(ep_id)
+    episode_info = {
             "season": episode.season,
             "episode_number": episode.episode_number,
             "doctor": episode.doctor,
@@ -126,8 +124,6 @@ def episode_info():
             "imdb": episode.imdb,
             "ep_id": episode.ep_id
         }
-        for episode in db.session.query(Episode).join(Location).all()
-    ]
 
     return jsonify(episode_info)
 
