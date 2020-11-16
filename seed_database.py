@@ -25,12 +25,14 @@ with open('data/DoctorWhoEpisodesInfo.csv', encoding='utf-8-sig') as csv_file:
        
     #for loop to set up database for episodes table and seeds data into episodes_in_db
 
-        season, episode_number, doctor, title, imdb, ep_id = (episode['season'],
+        season, episode_number, doctor, title, imdb, ep_id, companion, guest_star = (episode['season'],
                                         episode['episode_number'],
                                         episode['doctor'],
                                         episode['title'],
                                         episode['imdb'],
-                                        episode['ep_id'])
+                                        episode['ep_id'],
+                                        episode['companion'],
+                                        episode['guest_star'])
         
 
         db_episode = crud.create_episode(season,
@@ -38,7 +40,9 @@ with open('data/DoctorWhoEpisodesInfo.csv', encoding='utf-8-sig') as csv_file:
                                         doctor,
                                         title, 
                                         imdb,
-                                        ep_id)
+                                        ep_id,
+                                        companion,
+                                        guest_star)
         locations_in_db.append(db_episode)
 
 

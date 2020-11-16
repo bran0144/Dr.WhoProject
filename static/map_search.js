@@ -35,8 +35,9 @@ function initMap() {
               <ul class="location-info">
                 <li><b>Season</b>${episode.season}</li>
                 <li><b>Episode Number</b>${episode.episode_number}</li>
-                <li><b>Doctor</b>${episode.doctor}</li>
                 <li><b>Title</b>${episode.title}</li>
+                <li><b>Doctor</b>${episode.doctor}</li>
+                <li><b>Companion</b>{episode.companion}</li>
                 <li><b>IMDB Link</b>${episode.imdb}</li>
               </ul>
           </div>

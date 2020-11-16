@@ -9,7 +9,8 @@
     <div class=list_of_episodes>
     
       <div>"{{ episode.title }}" 
-      Doctor: {{ episode.doctor }} 
+      Doctor: {{ episode.doctor }}
+      Companion: {{ episode.companion }} 
       <a href="{{ episode.imdb }}">IMDB Link</a>
       <a href={{ url_for('create_map_from_season_search', season=episode.season, episode=episode.episode_number )}}>Link to Map</a></div>
     </div>

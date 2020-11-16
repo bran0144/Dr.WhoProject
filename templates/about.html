@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/homepage.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<h2>About Me</h2>
+<div class="about_image"><img src="/static/img/about_me.jpeg" alt="girl with the tardis"></div>
+<div class="about_text">
+    <p>I started this site as a project for Hackbright, a full-stack coding 
+    bootcamp for women. As someone who loves Doctor Who, I thought it would be fun to have a 
+    searchable database for places where Doctor Who has been filmed. The more I thought about it, 
+    the more I researched, I realized that the data would be more difficult to find that I realized.
+    IMDB does not have an API, and while there were sources available, it would have been difficult to
+    compile that data in a timely manner. Luckily, I contacted moviemaps.org who was willing to 
+    share their data on filming locations including the lat/long. I compiled an episode database
+    on my own that included information on season, episode title, which iteration of the Doctor,
+    which companion, and a link to the IMDB page about that episode.</p>
+
+    <p>After gathering and cleaning the data, I built a one to many data model as it would be the 
+    simplest way to search the data. While there were some locations that appear in multiple 
+    episodes, it was less than 5% of the data, so I determined to simplify it in light of
+    the time constraints of the project. In the future, I would like to build a many to many
+    table that would include those data points, as well as the few episodes that include multiple
+    doctors and companions.</p>
+
+    <p>My next challenge was creating the queries to join the databases and to build the routes to
+    create the flow for the user. I decided to have the user start at a homepage with multiple search
+    options so that the map could display multiple pins, say, all the locations where the 10th Doctor,
+    David Tennant, filmed. There is also an option for users to look at an episode list that includes
+    links to IMDB as well as links to the map for that specific episode. Once a user enters their search
+    parameters, a map, typically with mulitple pins, will display. When a user hovers over a pin, an
+    Information Box will display that includes episode information. When a user clicks on a pin, it takes
+    the user to a map that displays a zoomed in version of that single pin along with episode information.</p>
+
+    <p>One challenge I had was using the Google Maps API. It was more complicated that I expected, but 
+    then was very versatile once I got the hang of it. I also created an API for Google Maps to search 
+    my database through an AJAX call in order to display the episode information in an information box.</p>
+
+    <p>Some technology that I used in this project: Python, Flask, Jinja, Javascript, AJAX, HTML, Bootstrap,
+    and SQLAlcehmy.</p>
+
+</div>
+{% endblock %}
