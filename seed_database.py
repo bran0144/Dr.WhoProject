@@ -17,7 +17,7 @@ locations_in_db = []
 
 
 with open('data/DoctorWhoEpisodesInfo.csv', encoding='utf-8-sig') as csv_file:
-    fieldnames = ['season', 'episode_number', 'doctor', 'title', 'imdb', 'ep_id']
+    fieldnames = ['season', 'episode_number', 'doctor', 'title', 'imdb', 'ep_id', 'companion', 'guest_star']
     episode_data = csv.DictReader(csv_file, fieldnames=fieldnames, skipinitialspace=True)
     #reads and imports Episode info from csv file    
 
