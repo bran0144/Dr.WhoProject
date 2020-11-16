@@ -18,7 +18,6 @@ class Episode(db.Model):
     companion = db.Column(db.String(50), nullable=False)
     guest_star = db.Column(db.String(50))
 
-    # locations = db.relationship('Location', backref='episodes')
 
     def __repr__(self):
         return f'<episode_id={self.ep_id} title={self.title}>'

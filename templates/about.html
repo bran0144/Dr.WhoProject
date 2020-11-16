@@ -11,13 +11,12 @@
 <div class="about_text">
     <p>I started this site as a project for Hackbright, a full-stack coding 
     bootcamp for women. As someone who loves Doctor Who, I thought it would be fun to have a 
-    searchable database for places where Doctor Who has been filmed. The more I thought about it, 
-    the more I researched, I realized that the data would be more difficult to find that I realized.
-    IMDB does not have an API, and while there were sources available, it would have been difficult to
-    compile that data in a timely manner. Luckily, I contacted moviemaps.org who was willing to 
-    share their data on filming locations including the lat/long. I compiled an episode database
-    on my own that included information on season, episode title, which iteration of the Doctor,
-    which companion, and a link to the IMDB page about that episode.</p>
+    searchable database for places where Doctor Who has been filmed. The more I thought about it, and 
+    the more I researched, I realized that the data would be difficult to find. IMDB does not have an API, 
+    and while there were sources available, it would have been difficult to compile that data in a timely manner. 
+    Luckily, I contacted moviemaps.org who was willing to share their data on filming locations including 
+    the lat/long. I compiled an episode database on my own that included information on season, 
+    episode title, which iteration of the Doctor, which companion, and a link to the IMDB page about that episode.</p>
 
     <p>After gathering and cleaning the data, I built a one to many data model as it would be the 
     simplest way to search the data. While there were some locations that appear in multiple 
@@ -36,11 +35,12 @@
     the user to a map that displays a zoomed in version of that single pin along with episode information.</p>
 
     <p>One challenge I had was using the Google Maps API. It was more complicated that I expected, but 
-    then was very versatile once I got the hang of it. I also created an API for Google Maps to search 
-    my database through an AJAX call in order to display the episode information in an information box.</p>
+    then was very versatile once I got the hang of it. Another challenge was creating an API for Google Maps to search 
+    my database through an AJAX call in order to display the episode information in an information box. While
+    this was complicated, the final product has turned out better than I expected.</p>
 
     <p>Some technology that I used in this project: Python, Flask, Jinja, Javascript, AJAX, HTML, Bootstrap,
-    and SQLAlcehmy.</p>
+    and SQLAlcehmy. I also used the Google Maps for Javascript API.</p>
 
 </div>
 {% endblock %}

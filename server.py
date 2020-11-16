@@ -136,7 +136,15 @@ def show_single_map(location_id):
     location_by_id = {"latitude": str(location.latitude),
             "longitude": str(location.longitude),
             "ep_id": location.ep_id,
-            "address": location.address}
+            "address": location.address,
+            "season":location.episodes.season,
+            "episode_number": location.episodes.episode_number,
+            "title": location.episodes.title,
+            "doctor": location.episodes.doctor,
+            "companion": location.episodes.companion,
+            "guest_star": location.episodes.guest_star,
+            "imdb": location.episodes.imdb
+            }
            
     return render_template('/single_map.html', location_by_id=location_by_id)
 
@@ -158,6 +166,8 @@ def episode_info(ep_id):
             "episode_number": episode.episode_number,
             "doctor": episode.doctor,
             "title": episode.title,
+            "companion": episode.companion,
+            "guest_star": episode.guest_star,
             "imdb": episode.imdb,
             "ep_id": episode.ep_id
         }
