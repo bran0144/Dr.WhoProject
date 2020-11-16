@@ -15,6 +15,8 @@ class Episode(db.Model):
     doctor = db.Column(db.String(50), nullable=False)
     title = db.Column(db.String(100), nullable=False)
     imdb = db.Column(db.Text, nullable=False)
+    companion = db.Column(db.String(50), nullable=False)
+    guest_star = db.Column(db.String(50))
 
     # locations = db.relationship('Location', backref='episodes')
 

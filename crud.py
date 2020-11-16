@@ -2,7 +2,7 @@
 
 from model import db, Episode, Location, connect_to_db
 
-def create_episode(season, episode_number, doctor, title, imdb, ep_id):
+def create_episode(season, episode_number, doctor, title, imdb, ep_id, companion, guest_star):
     """Create and return a new episode"""
 
     episode = Episode(season=season, 
@@ -10,7 +10,9 @@ def create_episode(season, episode_number, doctor, title, imdb, ep_id):
                         doctor=doctor, 
                         title=title, 
                         imdb=imdb, 
-                        ep_id=ep_id)
+                        ep_id=ep_id,
+                        companion=companion, 
+                        guest_star=guest_star)
 
     db.session.add(episode)
     db.session.commit()
@@ -65,6 +67,16 @@ def get_location_by_doctor(doctor):
     """Returns locations by doctor."""
 
     return db.session.query(Location).join(Episode).filter(Episode.doctor == doctor).all()
+
+def get_location_by_companion(companion):
+    """Returns locations by companion."""
+
+    return db.session.query(Location).join(Episode).filter(Episode.companion == companion).all()
+
+def get_location_by_guest_star(guest_star):
+    """Returns locations by guest star."""
+
+    return db.session.qeury(Location).join(Episode).filter(Episode.guest_star == guest_star).all()
 
 def get_location_by_title(title):
     """Returns locations by title."""

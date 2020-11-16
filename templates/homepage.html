@@ -4,8 +4,6 @@
 <script src="/static/homepage.js"></script>
 {% endblock %}
 
-
-{% block navbar %} {% endblock %}
 {% block body %}
 
   <!-- Description for search -->
@@ -70,6 +68,38 @@
   <input type="submit" name="submit" value="Submit"/>
 </form>
 
+<h3>SEARCH BY COMPANION</h3>
+<form id="search-companion" method="GET" action="map_search_companion">
+ <select name="companion" id="search-companion">
+   <option value="NONE" selected disabled hidden></option>
+   <option value="Rose Tyler">Rose Tyler</option>
+   <option value="Martha Jones">Martha Jones</option>
+   <option value="Catherine Tate">Catherine Tate </option>
+   <option value="Amy Pond">Amy Pond</option>
+   <option value="Clara Oswald">Clara Oswald</option>
+   <option value="Nardole">Nardole</option>
+   <option value="Graham O'Brien">Graham O'Brien</option>
+   <option value="Astrid Peth">Astrid Peth</option>
+   <option value="Jackson Lake">Jackson Lake</option>
+   <option value="Lady Christina de Souza">Lady Christina de Souza</option>
+   <option value="Adelaide Brooke">Adelaide Brooke</option>
+   <option value="Wilfred Mott">Willfred Mott</option> 
+ </select> 
+</form>
+
+<h3>SEARCH BY GUEST STAR</h3>
+<form id="search-guest-star" method="GET" action="map_search_guest_star">
+  <select name="guest-star" id="search-companion">
+    <option value="NONE" selected disabled hidden></option>
+    <option value="Mickey Smith">Mickey Smith</option>
+    <option value="Captain Jack Harkness">Captain Jack Harkness</option>
+    <option value="Rose Tyler">Rose Tyler</option>
+    <option value="River Song">River Song</option>
+    <option value="Rory Williams">Rory Williams</option>
+    <option value="Bill Potts">Bill Potts</option>
+    <option value="Yasmin Khan">Yasmin Khan</option>
+  </select>
+</form>
 
   <h3>SEARCH BY EPISODE TITLE</h3>
   <form id="episode-title" method="GET" action="/map_search_title"> 

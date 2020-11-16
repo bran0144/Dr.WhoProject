@@ -67,7 +67,46 @@ def create_map_from_doctor_search():
 
     return render_template('map_search.html', locations=locations_by_doctor)
 
+@app.route('/map_search_companion')
+def create_map_from_companion_search():
+    """Renders map template from search criteria by companion."""
+    
+    companion = request.args.get("companion")
+    
+    locations_by_companion = [
+        {
+            "latitude": str(location.latitude),
+            "longitude": str(location.longitude),
+            "ep_id": location.ep_id,
+            "address": location.address,
+            "location_id": location.location_id
 
+        }
+        for location in crud.get_location_by_companion(companion)
+    ]
+
+    return render_template('map_search.html', locations=locations_by_companion)   
+
+@app.route('/map_search_guest_star')
+def create_map_from_guest_star_search():
+    """Renders map template from search criteria by guest star."""
+    
+    guest_star = request.args.get("guest_star")
+    
+    locations_by_guest_star = [
+        {
+            "latitude": str(location.latitude),
+            "longitude": str(location.longitude),
+            "ep_id": location.ep_id,
+            "address": location.address,
+            "location_id": location.location_id
+
+        }
+        for location in crud.get_location_by_guest_star(guest_star)
+    ]
+
+    return render_template('map_search.html', locations=locations_by_guest_star)
+       
 @app.route('/map_search_title')
 def create_map_from_title_search():
     """Renders map template from search criteria by episode title.""" 
