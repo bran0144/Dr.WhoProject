@@ -4,7 +4,7 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 <script
 defer
-src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly">
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdOteDx0CPC600vLObT5G1aFgiXjhWxPA&callback=initMap&libraries=&v=weekly">
 </script>
 
 <script>
@@ -12,7 +12,6 @@ src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=
 </script>
 
 <script>
-
 let map;
 
 function initMap() {
@@ -35,7 +34,6 @@ function initMap() {
     });
 
 }
-
 </script>
 {% endblock %}
 {% block body %}
@@ -45,9 +43,15 @@ function initMap() {
     <div class="single_map" id="single_map"></div>
 
     <div class="singlepage_episode_info" id="singlepage_episode_info">
+      <p><h3>Episode Title: "{{ location_by_id.title }}"</h3></p>
+      <p>Season: {{ location_by_id.season }}</p>
+      <p>Episode: {{ location_by_id.episode_number }}</p>
+      <p>Doctor: {{ location_by_id.doctor }}</p>
+      <p>Companion: {{ location_by_id.companion }}</p> 
+      <p>Guest Star: {{ location_by_id.guest_star }}</p>
+      <p><a href="{{ location_by_id.imdb }}">IMDB Link</a></p>  
+      <p>Address: {{ location_by_id.address }}</p>     
 
-      
     </div>
- 
  
 {% endblock %}

@@ -8,7 +8,8 @@
 
   <!-- Description for search -->
 
- <div>
+ <div class="dropdown-container" style="width:200px;">
+  <div>
    <h3>SEARCH BY SEASON</h3>
   <form id = "search-season-episode" method="GET" action="/map_search_season">
    <select name="season" id="season">
@@ -114,6 +115,6 @@
     <br>
     <p><a href="{{ url_for('create_list_of_episodes') }}">EPISODE LIST</a></p>
   </div>
-
+ </div>
 
 {% endblock %}
