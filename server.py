@@ -25,6 +25,12 @@ def get_about_page():
 
     return render_template('about.html')
 
+@app.route('/additional_info')
+def get_additionalinfo_page():
+    """View Additional Info page."""
+
+    return render_template('additional_info.html')
+
 
 @app.route('/map_search_season')
 def create_map_from_season_search():
