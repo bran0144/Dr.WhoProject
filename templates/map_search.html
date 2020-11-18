@@ -18,13 +18,13 @@ function setupMouseOver(map, locationMarker, location_ep_id) {
       locationInfoContent = (`
           <div class="window-content">
               <ul class="episode-info">
-                <li>Season:${episodeInfo.season}</li>
-                <li>Episode Number:${episodeInfo.episode_number}</li>
-                <li>Title:${episodeInfo.title}</li>
-                <li>Doctor:${episodeInfo.doctor}</li>
-                <li>Companion:${episodeInfo.companion}</li>
-                <li>Guest Star:${episodeInfo.guest_star}</li>
-                <li>IMDB Link:${episodeInfo.imdb}</li>
+                <li><b>Season:</b>  ${episodeInfo.season}</li>
+                <li><b>Episode Number:</b>  ${episodeInfo.episode_number}</li>
+                <li><b>Title:</b>  ${episodeInfo.title}</li>
+                <li><b>Doctor:</b>  ${episodeInfo.doctor}</li>
+                <li><b>Companion:</b>  ${episodeInfo.companion}</li>
+                <li><b>Guest Star:</b>  ${episodeInfo.guest_star}</li>
+                <li><b><a href="${episodeInfo.imdb}">IMDB Link</a></b></li>
                 
               </ul>
           </div>
@@ -33,6 +33,7 @@ function setupMouseOver(map, locationMarker, location_ep_id) {
     console.log(episodeInfo);
     const infoWindow = new google.maps.InfoWindow({
       content: locationInfoContent,
+      maxWidth: 300,
     });
     locationMarker.addListener('mouseover', () => {
         infoWindow.open(map, locationMarker);

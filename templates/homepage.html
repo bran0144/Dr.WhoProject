@@ -8,11 +8,11 @@
 
   <!-- Description for search -->
 
- <div class="dropdown-container" style="width:200px;">
-  <div>
-   <h3>SEARCH BY SEASON</h3>
+ <div class="dropdown-container">
+  <div class="form-group">
+   <label for="season">SEARCH BY SEASON</label>
   <form id = "search-season-episode" method="GET" action="/map_search_season">
-   <select name="season" id="season">
+   <select class="form-control" name="season" id="season">
     <option value="NONE" selected disabled hidden></option>
     <option value="1">1</option>
     <option value="2">2</option>
@@ -28,8 +28,8 @@
     <option value="12">12</option>
     <option value="Special">Specials</option>
   </select>
-  <h3>AND EPISODE NUMBER</h3>
-  <select name="episode" id="episode">
+  <label for="episode">AND EPISODE NUMBER</label>
+  <select class="form-control" name="episode" id="episode">
     <option value="SHOW ALL" selected disabled hidden>
     </option>
     <option value="1">1</option>
@@ -49,14 +49,14 @@
     <option value="15">15</option>
     <option value="16">16</option>
   </select>
-  <input type="submit" name="submit" value="Submit"/>
+  <input class="btn btn-dark" type="submit" name="submit" value="Submit"/>
 </form>
 </div>
 
-
-  <h3>SEARCH BY DOCTOR</h3>
+  <div class="form-group">
+  <label for="doctor">SEARCH BY DOCTOR</label>
   <form id="search-doctor" method="GET" action="/map_search_doctor">
-  <select name="doctor" id="search-doctor">
+  <select class="form-control" name="doctor" id="search-doctor">
     <option value="NONE" selected disabled hidden></option>
     <option value="Eccleston">Christopher Eccleston</option>
     <option value="Tennant">David Tennant</option>
@@ -64,12 +64,14 @@
     <option value="Capaldi">Peter Capaldi</option>
     <option value="Whittaker">Jodie Whittaker</option>
   </select>
-  <input type="submit" name="submit" value="Submit"/>
+  <input class="btn btn-dark" type="submit" name="submit" value="Submit"/>
 </form>
+</div>
 
-<h3>SEARCH BY COMPANION</h3>
+<div class="form-group">
+<label for="companion">SEARCH BY COMPANION</label>
 <form id="search-companion" method="GET" action="map_search_companion">
- <select name="companion" id="search-companion">
+ <select class="form-control" name="companion" id="search-companion">
    <option value="NONE" selected disabled hidden></option>
    <option value="Rose Tyler">Rose Tyler</option>
    <option value="Martha Jones">Martha Jones</option>
@@ -84,12 +86,14 @@
    <option value="Adelaide Brooke">Adelaide Brooke</option>
    <option value="Wilfred Mott">Willfred Mott</option> 
  </select> 
- <input type="submit" name="submit" value="Submit"/>
+ <input class="btn btn-dark" type="submit" name="submit" value="Submit"/>
 </form>
+</div>
 
-<h3>SEARCH BY GUEST STAR</h3>
+<div class="form-group">
+<label for="guest_star">SEARCH BY GUEST STAR</label>
 <form id="search-guest-star" method="GET" action="map_search_guest_star">
-  <select name="guest-star" id="search-companion">
+  <select class="form-control" name="guest-star" id="search-companion">
     <option value="NONE" selected disabled hidden></option>
     <option value="Mickey Smith">Mickey Smith</option>
     <option value="Captain Jack Harkness">Captain Jack Harkness</option>
@@ -99,17 +103,19 @@
     <option value="Bill Potts">Bill Potts</option>
     <option value="Yasmin Khan">Yasmin Khan</option>
   </select>
-  <input type="submit" name="submit" value="Submit"/>
+  <input class="btn btn-dark" type="submit" name="submit" value="Submit"/>
 </form>
+</div>
 
-  <h3>SEARCH BY EPISODE TITLE</h3>
+<div class="form-group">
+  <label for="episode-title">SEARCH BY EPISODE TITLE</label>
   <form id="episode-title" method="GET" action="/map_search_title"> 
-    <label for="episode-title"></label>
     <input type="text" id="episode-title" name="episode-title">
     <br>
-    <input type="submit" value="Submit">
+    <input class="btn btn-dark" type="submit" value="Submit">
   </form>
-  
+</div>
+
   <div>
     Not sure what to search by? 
     <br>

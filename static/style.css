@@ -1,6 +1,7 @@
 
 #searched_map {
     height: 100%;
+    box-sizing: content-box;
   }
   html, body {
     height: 100%;
@@ -10,6 +11,7 @@
 
 #single_map {
     height: 100%;
+    box-sizing: content-box;
   }
   html, body {
     height: 100%;
@@ -17,20 +19,15 @@
     padding: 0;
   }
 
-li {
-  list-style-type: none;
 }
 a {
   text-decoration: none;
 }
-nav {
-  width: 100vw;
-  background-color: gray;
+.form-group {
+  max-width: 40%;
 }
-ul{
-  margin: 0;
-  padding: 0;
-  display: flex;
+.img-fluid {
+  max-width: 50%;
 }
 
 
