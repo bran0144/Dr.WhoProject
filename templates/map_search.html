@@ -38,6 +38,9 @@ function setupMouseOver(map, locationMarker, location_ep_id) {
     locationMarker.addListener('mouseover', () => {
         infoWindow.open(map, locationMarker);
           });
+    locationMarker.addListener('mouseout', () => {
+        infoWindow.close(map, locationMarker);
+          });
     }); 
   }
 
@@ -67,9 +70,7 @@ function initMap() {
     });
    setupMouseOver(map, locationMarker, location_ep_id); 
     
-   locationMarker.addListener('mouseout', () => {
-        infoWindow.close(map, locationMarker);
-          });
+
     locationMarker.addListener('click', () => {
         window.location.href = locationMarker.url;
           });
