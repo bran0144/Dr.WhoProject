@@ -9,6 +9,7 @@
     padding: 0;
   }
 
+
 #single_map {
     height: 100%;
     box-sizing: content-box;
@@ -23,10 +24,22 @@ a {
   text-decoration: none;
 }
 .form-group {
-  max-width: 40%;
+  max-width: 30%;
+  background-color: rgb(5, 5, 202);
 }
 .img-fluid {
   max-width: 50%;
 }
-
+.gallifreyan1 {
+  background-image: url('/static/img/gallifrey.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+}
+.gallifreyan2 {
+  background-image: url('/static/img/gallifrey.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+}
 
