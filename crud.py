@@ -30,7 +30,7 @@ def get_episode_by_id(ep_id):
     return db.session.query(Episode).filter(Episode.ep_id == ep_id).first()
 
 def create_location(address, longitude, latitude, ep_id):
-    """Create and return a new episode"""
+    """Create and return a new location"""
 
     location = Location(address=address,
                         longitude=longitude,
@@ -76,7 +76,7 @@ def get_location_by_companion(companion):
 def get_location_by_guest_star(guest_star):
     """Returns locations by guest star."""
 
-    return db.session.qeury(Location).join(Episode).filter(Episode.guest_star == guest_star).all()
+    return db.session.query(Location).join(Episode).filter(Episode.guest_star == guest_star).all()
 
 def get_location_by_title(title):
     """Returns locations by title."""

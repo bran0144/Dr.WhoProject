@@ -38,20 +38,20 @@ function initMap() {
 {% endblock %}
 {% block body %}
 
- 
+<div class="col" id="singlepage_episode_info">
+  <p><h3>Episode Title: "{{ location_by_id.title }}"</h3></p>
+  <p>Season: {{ location_by_id.season }}</p>
+  <p>Episode: {{ location_by_id.episode_number }}</p>
+  <p>Doctor: {{ location_by_id.doctor }}</p>
+  <p>Companion: {{ location_by_id.companion }}</p> 
+  <p>Guest Star: {{ location_by_id.guest_star }}</p>
+  <p><a href="{{ location_by_id.imdb }}">IMDB Link</a></p>  
+  <p>Address: {{ location_by_id.address }}</p>     
+</div>
 
-    <div class="single_map" id="single_map"></div>
 
-    <div class="singlepage_episode_info" id="singlepage_episode_info">
-      <p><h3>Episode Title: "{{ location_by_id.title }}"</h3></p>
-      <p>Season: {{ location_by_id.season }}</p>
-      <p>Episode: {{ location_by_id.episode_number }}</p>
-      <p>Doctor: {{ location_by_id.doctor }}</p>
-      <p>Companion: {{ location_by_id.companion }}</p> 
-      <p>Guest Star: {{ location_by_id.guest_star }}</p>
-      <p><a href="{{ location_by_id.imdb }}">IMDB Link</a></p>  
-      <p>Address: {{ location_by_id.address }}</p>     
+    <div class="col" id="single_map"></div>
 
-    </div>
+  
  
 {% endblock %}

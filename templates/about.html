@@ -7,8 +7,10 @@
 {% block body %}
 
 <h2>About Me</h2>
-<div class="img-fluid"><img src="/static/img/about_me1.jpg" alt="girl with the tardis"></div>
-<div class="about_text">
+<div class="container">
+    <div class="row">
+<div class="col"><img src="/static/img/about_me.jpg" alt="girl with the tardis" id="about_me"></div>
+<div class="col" id="about_text">
     <p>I started this site as a project for Hackbright, a full-stack coding 
     bootcamp for women. As someone who loves Doctor Who, I thought it would be fun to have a 
     searchable database for places where Doctor Who has been filmed. The more I thought about it, and 
@@ -41,6 +43,7 @@
 
     <p>Some technology that I used in this project: Python, Flask, Jinja, Javascript, AJAX, HTML, Bootstrap,
     and SQLAlcehmy. I also used the Google Maps for Javascript API.</p>
-
+</div>
+</div>
 </div>
 {% endblock %}

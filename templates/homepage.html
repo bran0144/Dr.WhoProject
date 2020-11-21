@@ -6,9 +6,10 @@
 
 {% block body %}
 
-  
-<div class="gallifreyan1"></div>
- <div class="dropdown-container">
+<div class="container">
+  <div class="row">
+<div class="col" id="gallifreyan1"></div>
+ <div class="col" id="dropdown-container">
   <div class="form-group">
    <label for="season">SEARCH BY SEASON</label>
   <form id = "search-season-episode" method="GET" action="/map_search_season">
@@ -93,7 +94,7 @@
 <div class="form-group">
 <label for="guest_star">SEARCH BY GUEST STAR</label>
 <form id="search-guest-star" method="GET" action="map_search_guest_star">
-  <select class="form-control" name="guest-star" id="search-companion">
+  <select class="form-control" name="guest_star" id="search-guest-star">
     <option value="NONE" selected disabled hidden></option>
     <option value="Mickey Smith">Mickey Smith</option>
     <option value="Captain Jack Harkness">Captain Jack Harkness</option>
@@ -122,5 +123,7 @@
     <p><a href="{{ url_for('create_list_of_episodes') }}">EPISODE LIST</a></p>
   </div>
  </div>
-<div class=gallifreyan2></div>
+<div class="col" id="gallifreyan2"></div>
+</div>
+</div>  
 {% endblock %}

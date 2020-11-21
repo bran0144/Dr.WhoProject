@@ -1,4 +1,6 @@
-
+body {
+  background-color: rgb(0, 59, 111);
+}
 #searched_map {
     height: 100%;
     box-sizing: content-box;
@@ -9,34 +11,44 @@
     padding: 0;
   }
 
-
-#single_map {
-    height: 100%;
-    box-sizing: content-box;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
+.img-fluid {
+  max-width: 100%;
+}
+.container {
+  color: white;
+}  
+.list_of_episodes {
+  color: white;
+}
+#iconic_places {
+  color: white;
+}
+h2 {
+  color: white;
+}
+#singlepage_episode_info {
+  color: white;
+}
 a {
   text-decoration: none;
 }
-.form-group {
-  max-width: 30%;
-  background-color: rgb(5, 5, 202);
+
+#single_map {
+  height: 100%;
+  box-sizing: content-box;
 }
-.img-fluid {
-  max-width: 50%;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-.gallifreyan1 {
+#gallifreyan1 {
   background-image: url('/static/img/gallifrey.png');
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: cover;
 }
-.gallifreyan2 {
+#gallifreyan2 {
   background-image: url('/static/img/gallifrey.png');
   background-repeat: no-repeat;
   background-attachment: fixed; 
