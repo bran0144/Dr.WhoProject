@@ -11,7 +11,6 @@ import json
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
-# GOOGLE_API_KEY = os.environ['GOOGLE_API_KEY']
 
 @app.route('/')
 def homepage():
