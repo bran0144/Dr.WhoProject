@@ -4,6 +4,8 @@
    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="/static/style.css">
@@ -17,15 +19,15 @@
     </title>
     
     {% block navbar %}
-    <div><img src="/static/img/police_box.jpg" class="img-fluid" alt="police call box logo" id="police_box"></div>
+    <div><img src="/static/img/police_box.jpg" class="d-flex-justify-content-center" alt="police call box logo" id="police_box"></div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <img href="#" id="dr-who-logo" class="brand-logo right" src="/static/img/logo.png" id="logo"></img>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/about">About</a>
-            <a class="nav-item nav-link active" href="/">Search</a>
-            <a class="nav-item nav-link active" href="/episode_list">Episode List</a>
-            <a class="nav-item nav-link active" href="/additional_info">Additional Sites</a>
+            <a class="nav-item nav-link active" href="/about"><h4>About</h4></a>
+            <a class="nav-item nav-link active" href="/"><h4>Search</h4></a>
+            <a class="nav-item nav-link active" href="/episode_list"><h4>Episode List</h4></a>
+            <a class="nav-item nav-link active" href="/additional_info"><h4>Additional Sites</h4></a>
           </div>
       </div>
     </nav>

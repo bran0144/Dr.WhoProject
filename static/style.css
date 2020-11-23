@@ -1,5 +1,6 @@
 body {
   background-color: rgb(0, 59, 111);
+  font-family: 'Playfair Display', serif;
 }
 #searched_map {
     height: 100%;
@@ -7,8 +8,6 @@ body {
   }
   html, body {
     height: 100%;
-    margin: 0;
-    padding: 0;
   }
 
 .img-fluid {
@@ -31,17 +30,14 @@ h2 {
 }
 a {
   text-decoration: none;
+  color: rgba(1, 1, 65, 0.966); 
 }
 
 #single_map {
   height: 100%;
   box-sizing: content-box;
 }
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+
 #gallifreyan1 {
   background-image: url('/static/img/gallifrey.png');
   background-repeat: no-repeat;
