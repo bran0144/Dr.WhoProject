@@ -23,21 +23,26 @@ body {
 h2 {
   color: white;
 }
+h3 {
+  color: white;
+}
 #singlepage_episode_info {
   color: white;
 }
 a {
   text-decoration: none;
-  color: rgba(1, 1, 65, 0.966); 
+  color: rgba(149, 175, 245, 0.966); 
 }
 #police_box{
   background-color: #003B6f;
 }
 #single_map {
-  height: 80%;
   box-sizing: content-box;
+  height: 80%;
 }
-
+# img {
+  max-width: none;
+}
 #gallifreyan1 {
   background-image: url('/static/img/gallifrey.png');
   background-repeat: no-repeat;

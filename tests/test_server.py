@@ -11,54 +11,30 @@ class AppIntegrationTestCase(unittest.TestCase):
         return
 
     def test_index(self):
-        client = server.app.test_client()
-        result = client.get('/')
+        """Tests homepage."""
+        result = self.client.get('/')
+        self.assertEqual(result.status_code, 200)
         self.assertIn(b'<option value="1">1</option>', result.data)
     
     def test_episode_list(self):
-        client = server.app.test_client()
-        result = client.get('/episode_list')
+        """Tests episode list page."""
+        result = self.client.get('/episode_list')
         self.assertIn(b'"The End of the World" Doctor: Eccleston Companion: Rose Tyler', result.data)
 
     def test_additional_info(self):
-        client = server.app.test_client()
-        result = client.get('/additional_info')
+        """Tests additional info page."""
+        result = self.client.get('/additional_info')
         self.assertIn(b'<p><a href="https://www.youtube.com/watch?v=E33vAhs4bNs">Link to Video</a></p>', result.data)
 
     def test_about(self):
-        client = server.app.test_client()
-        result = client.get('/about')
+        """Tests about page."""
+        result = self.client.get('/about')
         self.assertIn(b'<h2>About Me</h2>', result.data)
 
-    def test_map_search_season(self):
-        client = server.app.test_client()
-        result = client.get('/map_search_season')
-        self.assertIn(b'', result.data)
-
-    def test_map_search_doctor(self):
-        client = server.app.test_client()
-        result = client.get('/map_search_doctor')
-        self.assertIn(b'', result.data)
-
-    def test_map_search_companion(self):
-        client = server.app.test_client()
-        result = client.get('/map_search_companion')
-        self.assertIn(b'', result.data)
-
-    def test_map_search_guest_star(self):
-        client = server.app.test_client()
-        result = client.get('/map_search_guest_star')
-        self.assertIn(b'', result.data)
-    
-    def test_map_search_title(self):
-        client = server.app.test_client()
-        result = client.get('/map_search_title')
-        self.assertIn(b'', result.data)
-    
     def test_single_map(self):
-        client = server.app.test_client()
-        result = client.get('/single_map')
-        self.assertIn(b'', result.data)
+        """Tests single map page."""
+        result = self.client.get('/single_map')
+        self.assertIn(b'<div id="single_map"></div>', result.data)
 
 
 if __name__ == '__main__':
