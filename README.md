@@ -6,11 +6,12 @@ As a fan of both travel and Doctor Who, I wanted to create a tool that organized
 
 ### Features:
 
-- Allow user to search by season and episode, by title, or by Doctor (i.e. David Tennant)
-- Displays multiple sites on a map that includes an information box that pops up on mouseover with information about the episode it was filmed
-- Allow user to click from pin on map page to page with a single site and additional information including a link to IMDB page about episode
+- Allow user to search by season and episode, by title, by Doctor (i.e. David Tennant), by companion, or by guest star
+- Displays multiple sites on a map that includes an information box that pops up on mouseover with information about the episode 
+- Allows user to click from pin on map page to page with a single site and additional information including a link to IMDB page about episode
 - Includes a full episode list with links to relavant map and IMDB page
 - Includes an additional page with the most iconic sites from Doctor Who, links to youtube videos showing the relevant scenes from Doctor Who at the site, and links to information about visiting that site
+- Designed the website logo in Paint S for Mac
 
 
 ### Landing Page
@@ -21,9 +22,11 @@ As a fan of both travel and Doctor Who, I wanted to create a tool that organized
 
 - Python
 - Javascript/jQuery
+- AJAX 
 - CSS
 - HTML
 - PostgresSQL
+- Jinja
 
 ** Framework/libraries: **
 - Flask
@@ -44,7 +47,7 @@ In terminal, run "python3 server.py" from root directory
 
 #### Author:
 
-**Katie Gott**- *Software developer currently seeking new opportunities* - [Linkedin][https://www.linkedin.com/in/katie-gott-phd-397002190/] 
+**Katie Gott**- *Software developer currently seeking new opportunities* - [Linkedin][https://www.linkedin.com/in/katie-gott/] 
 
 #### Thanks:
 Special thanks to moviemaps.org who shared their Doctor Who film locations data with me for my project.

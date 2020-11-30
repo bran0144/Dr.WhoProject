@@ -41,6 +41,7 @@ class Location(db.Model):
 
 
 def example_data():
+    """Fake data for testing in tests.py"""
     Episode.query.delete()
     Location.query.delete()
 

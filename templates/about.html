@@ -16,10 +16,12 @@
     bootcamp for women. As someone who loves Doctor Who, I thought it would be fun to have a 
     searchable database for places where Doctor Who has been filmed. The more I thought about it, and 
     the more I researched, I realized that the data would be difficult to find. IMDB does not have an API, 
-    and while there were sources available, it would have been difficult to compile that data in a timely manner. 
+    and while there were sources available, it would have been difficult to compile that data in a timely manner, 
+    even with a webscraping tool like Beautiful Soup, the lat/longs would not be easily available. 
     Luckily, I contacted moviemaps.org who was willing to share their data on filming locations including 
     the lat/long. I compiled an episode database on my own that included information on season, 
-    episode title, which iteration of the Doctor, which companion, and a link to the IMDB page about that episode.</p>
+    episode title, which iteration of the Doctor, which companion and guest star, and a link to the IMDB page 
+    about that episode.</p>
 
     <p>After gathering and cleaning the data, I built a one to many data model as it would be the 
     simplest way to search the data. While there were some locations that appear in multiple 
@@ -42,6 +44,14 @@
     my database through an AJAX call in order to display the episode information in an information box. While
     this was complicated, particularly dealing with asynchronous loading, the final product has turned 
     out better than I expected.</p>
+
+    <p>When deciding on the layout and design, I wanted to emulate the iconic Tardis blue and white throughout the site. 
+    I also wanted to simulate the Tardis windows with the search dropdown boxes on the homepage and the "Police Box" 
+    above the navbar. On each side of the search dropdowns is the Gallifreyan language (the circular written 
+    language from the home planet of the Doctor). I designed my own logo "Doctor Who What Where" for the site using 
+    Paint S for Mac. I also found and resized a tardis png for the markers in Google Maps to continue the theming
+    onto the maps.
+    </p>
 
     <p>Some technology that I used in this project: Python, Flask, Jinja, Javascript, AJAX, HTML, Bootstrap,
     and SQLAlcehmy. I also used the Google Maps for Javascript API.</p>

@@ -5,12 +5,11 @@ body {
 #searched_map {
     height: 80%;
     box-sizing: content-box;
-    border: solid rgb(0, 59, 111) 10 px;
+    margin: 30px;
   }
   html, body {
     height: 100%;
   }
-
 .container {
   color: white;
 }  
@@ -26,9 +25,6 @@ h2 {
 h3 {
   color: white;
 }
-#singlepage_episode_info {
-  color: white;
-}
 a {
   text-decoration: none;
   color: rgba(149, 175, 245, 0.966); 
@@ -36,11 +32,24 @@ a {
 #police_box{
   background-color: #003B6f;
 }
-#single_map {
-  box-sizing: content-box;
-  height: 80%;
+html, body{
+  height: 100%;
 }
-# img {
+.container-fluid{
+  height: 100%;
+  position: relative;
+}
+#map_canvas {
+  height: 80%;
+  box-sizing: content-box;
+  position: absolute;
+  right:30px;
+}
+#right {
+  color: white;
+  height: 100%;
+}
+#img {
   max-width: none;
 }
 #gallifreyan1 {

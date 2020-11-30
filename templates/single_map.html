@@ -21,9 +21,9 @@ function initMap() {
   const latLng = {'lat': Number(single_location.latitude), 'lng': Number(single_location.longitude)};
  
   
-    const map = new google.maps.Map(document.getElementById("single_map"), {
+    const map = new google.maps.Map(document.getElementById("map_canvas"), {
       center: latLng,
-      zoom: 8,
+      zoom: 12,
     });
 
     const locationMarker = new google.maps.Marker({
@@ -38,16 +38,17 @@ function initMap() {
 {% endblock %}
 {% block body %}
 
-
-<div class="row">
-  <div class="col-md-12 text-center with-border">
+<div class="continer">
+  <div class="text-center">
     <h3>Episode Title: "{{ location_by_id.title }}"</h3>
   </div>
 </div>
-<!-- <div class="container">
-<div class="row"> -->
-<div id="singlepage_episode_info">
- 
+
+<div class="container-fluid">
+  <div class="row">
+
+<div class="col-md-6" id="right">
+
   <p>Season: {{ location_by_id.season }}</p>
   <p>Episode: {{ location_by_id.episode_number }}</p>
   <p>Doctor: {{ location_by_id.doctor }}</p>
@@ -57,9 +58,8 @@ function initMap() {
   <p>Address: {{ location_by_id.address }}</p>     
 </div>
 
-
-    <div id="single_map"></div>
-  <!-- </div>
-</div> -->
+<div class="col-md-6" id="map_canvas"></div>
+</div>
+</div>
  
 {% endblock %}

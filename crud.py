@@ -57,6 +57,11 @@ def get_location_by_ep_id(ep_id):
 
     return db.session.query(Location).filter_by(ep_id = ep_id).all()
 
+def get_location_by_season(season):
+    """Returns locations by season only."""
+
+    return db.session.query(Location).join(Episode).filter(Episode.season == season).all()
+
 def get_location_by_season_episode(season, episode_number):
     """Returns locations by season and episode."""
 
