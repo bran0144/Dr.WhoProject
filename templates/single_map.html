@@ -48,14 +48,14 @@ function initMap() {
   <div class="row">
 
 <div class="col-md-6" id="right">
-
-  <p>Season: {{ location_by_id.season }}</p>
-  <p>Episode: {{ location_by_id.episode_number }}</p>
-  <p>Doctor: {{ location_by_id.doctor }}</p>
-  <p>Companion: {{ location_by_id.companion }}</p> 
-  <p>Guest Star: {{ location_by_id.guest_star }}</p>
-  <p><a href="{{ location_by_id.imdb }}">IMDB Link</a></p>  
-  <p>Address: {{ location_by_id.address }}</p>     
+ 
+  <p><h4>Season: {{ location_by_id.season }}</h4></p>
+  <p><h4>Episode: {{ location_by_id.episode_number }}</h4></p>
+  <p><h5>Doctor: {{ location_by_id.doctor }}</h5></p>
+  <p><h5>Companion: {{ location_by_id.companion }}</h5></p> 
+  <p><h5>Guest Star: {{ location_by_id.guest_star }}</h5></p>
+  <p><h4><a href="{{ location_by_id.imdb }}">IMDB Link</a></h4></p>  
+  <p><h5>Address: {{ location_by_id.address }}</h5></p>     
 </div>
 
 <div class="col-md-6" id="map_canvas"></div>

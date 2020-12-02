@@ -1,18 +1,18 @@
-# Doctor Who What Where
 ![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/logo.png "Logo Title Text 1")
 
 ## Introduction:
 
-As a fan of both travel and Doctor Who, I wanted to create a tool that organized and allowed the user to search for their favorite film sites from the popular show.
+As a fan of both travel and Doctor Who, I wanted to create a searchable database that allowed the user to search for their favorite film sites from the popular show and create maps of those sites.
 
 ### Features:
 
-- Allow user to search by season and episode, by title, by Doctor (i.e. David Tennant), by companion, or by guest star
+- Allow user to search by season and episode, by title, by Doctor, by companion, or by guest star
 - Displays multiple sites on a map that includes an information box that pops up on mouseover with information about the episode 
+- Infowindow uses an AJAX call to get data from API I created of the relevant episode info
 - Allows user to click from pin on map page to page with a single site and additional information including a link to IMDB page about episode
-- Includes a full episode list with links to relavant map and IMDB page
+- Includes a full episode list with links to relevant map and IMDB page
 - Includes an additional page with the most iconic sites from Doctor Who, links to youtube videos showing the relevant scenes from Doctor Who at the site, and links to information about visiting that site
-- Designed the website logo in Paint S for Mac
+- Designed logo for website in Paint S for Mac
 
 ### Video Demo:
 
