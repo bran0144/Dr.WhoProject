@@ -1,4 +1,5 @@
-#Doctor Who What Where
+# Doctor Who What Where
+![alt text] (https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/logo.png "Logo Title Text 1")
 
 ## Introduction:
 
