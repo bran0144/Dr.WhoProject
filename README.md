@@ -1,5 +1,5 @@
 # Doctor Who What Where
-![alt text] (https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/logo.png "Logo Title Text 1")
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/logo.png "Logo Title Text 1")
 
 ## Introduction:
 
@@ -14,10 +14,25 @@ As a fan of both travel and Doctor Who, I wanted to create a tool that organized
 - Includes an additional page with the most iconic sites from Doctor Who, links to youtube videos showing the relevant scenes from Doctor Who at the site, and links to information about visiting that site
 - Designed the website logo in Paint S for Mac
 
+### Video Demo:
 
 ### Landing Page
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/landingpage.png "Landing Page")
 
-### Video Demo:
+### Map Page
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/searched_map.png "Map Page")
+
+### InfoWindow
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/info_window.png "Info Window")
+
+### Single Pin Page
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/singlePin.png "Single Pin Page")
+
+### Additional Sites
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/additional_sites.png "Additional Sites")
+
+### Episode List
+![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/episode_list.png "Episode List")
 
 #### Languages:
 
