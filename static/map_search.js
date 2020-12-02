@@ -50,20 +50,8 @@ function initMap() {
           });
         }
       )}
-          // need a mouseout event listener to close infowindow
-
-          locationMarker.addEventListener('click', () => {
-// this needs to send lat/long and ep_id to 
-          })
+ 
 
   };
 } 
 
-
- 
-    // this should work on click to take you to route , but how to send location_id
-    //  .on event delegation - takes one or more events
-    // .on('click', [selector] [data], handler)
-    // can use $.ajax - can set converters (will convert json to jquery parseJson)
-    // data, method = GET, or PUT?, url (where request is sent), 
-    // could do XMLHttpRequest
