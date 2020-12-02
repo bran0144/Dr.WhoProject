@@ -12,16 +12,21 @@
 <div class="col"><img src="/static/img/about_me.jpg" alt="girl with the tardis" id="about_me"></div>
 <div class="col" id="about_text">
     <h2>About Me</h2>
+
+    <p>Technology that I used in this project: Python, Flask, Jinja, Javascript, AJAX, jQuery, HTML, Bootstrap,
+        CSS, JSON, and PostgreSQL.</p>
+    <p>API's used in project: Google Maps for Javascript API, and created an API using JSON for episode info in 
+        Google Maps using an AJAX call.</p> 
+    <p>Data: Collected address and lat/long data from moviemaps.org, cleaned that data and assigned episode foreign keys.
+        Created episode info table including info on actors and IMDB links.</p>
     <p>I started this site as a project for Hackbright, a full-stack coding 
-    bootcamp for women. As someone who loves Doctor Who, I thought it would be fun to have a 
-    searchable database for places where Doctor Who has been filmed. The more I thought about it, and 
-    the more I researched, I realized that the data would be difficult to find. IMDB does not have an API, 
-    and while there were sources available, it would have been difficult to compile that data in a timely manner, 
-    even with a webscraping tool like Beautiful Soup, the lat/longs would not be easily available. 
-    Luckily, I contacted moviemaps.org who was willing to share their data on filming locations including 
-    the lat/long. I compiled an episode database on my own that included information on season, 
-    episode title, which iteration of the Doctor, which companion and guest star, and a link to the IMDB page 
-    about that episode.</p>
+    bootcamp. As someone who loves Doctor Who, I thought it would be fun to have a 
+    searchable database for places where Doctor Who has been filmed. The data was more difficult to find than I expected.
+    IMDB does not have an API, and the data would have been difficult to compile that data in a timely manner, 
+    even with a webscraping tool like Beautiful Soup. Luckily, I contacted moviemaps.org who was willing to 
+    share their data on filming locations including the lat/long. I compiled an episode database on my own that 
+    included information on season, episode title, which iteration of the Doctor, which companion and guest star, 
+    and a link to the IMDB page about that episode.</p>
 
     <p>After gathering and cleaning the data, I built a one to many data model as it would be the 
     simplest way to search the data. While there were some locations that appear in multiple 
@@ -30,8 +35,7 @@
     table that would include those data points, as well as the few episodes that include multiple
     doctors and companions.</p>
 
-    <p>My next challenge was creating the queries to join the databases and to build the routes to
-    create the flow for the user. I decided to have the user start at a homepage with multiple search
+    <p>For the UI, I decided to have the user start at a homepage with multiple search
     options so that the map could display multiple pins, say, all the locations where the 10th Doctor,
     David Tennant, filmed. There is also an option for users to look at an episode list that includes
     links to IMDB as well as links to the map for that specific episode. Once a user enters their search
@@ -50,11 +54,9 @@
     above the navbar. On each side of the search dropdowns is the Gallifreyan language (the circular written 
     language from the home planet of the Doctor). I designed my own logo "Doctor Who What Where" for the site using 
     Paint S for Mac. I also found and resized a tardis png for the markers in Google Maps to continue the theming
-    onto the maps.
-    </p>
+    onto the maps. </p>
 
-    <p>Some technology that I used in this project: Python, Flask, Jinja, Javascript, AJAX, HTML, Bootstrap,
-    and SQLAlcehmy. I also used the Google Maps for Javascript API.</p>
+   
 </div>
 </div>
 </div>
