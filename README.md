@@ -15,6 +15,7 @@ As a fan of both travel and Doctor Who, I wanted to create a searchable database
 - Designed logo for website in Paint S for Mac
 
 ### Video Demo:
+[Link to YouTube Demo] (https://youtu.be/k80PL-FMAiM)
 
 ### Landing Page
 ![alt text](https://github.com/bran0144/Dr.WhoProject/blob/master/static/img/landingpage.png "Landing Page")
