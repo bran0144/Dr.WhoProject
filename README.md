@@ -45,11 +45,11 @@ As a fan of both travel and Doctor Who, I wanted to create a searchable database
 - PostgresSQL
 - Jinja
 
-** Framework/libraries: **
+#### Framework/libraries:
 - Flask
 - Bootstrap
 
-** APIs: **
+#### APIs: 
 - Google Maps Javascript API
 - Created an API of episode info for Google Maps to call using AJAX 
 
