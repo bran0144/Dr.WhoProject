@@ -47,7 +47,7 @@ def example_data():
 
     #Sample episode and location data for testing database
     ep1 = Episode(ep_id='17_2', season=17, episode_number=2, doctor='Hiddleston', title='Doctor Loki',
-     imdb='http://www.imdb.com', companion='Irene Adler', guest_star='Captain Jack Harkness')
+    imdb='http://www.imdb.com', companion='Irene Adler', guest_star='Captain Jack Harkness')
     ep2 = Episode(ep_id='17_3', season=17, episode_number=3, doctor='Hiddleston', title='Marvel', 
     imdb='http://www.imdb.com', companion='Irene Adler', guest_star='Rose Tyler')
     ep3 = Episode(ep_id='17_4', season=17, episode_number=4, doctor='Hiddleston', title='Gallifrey falls again',
